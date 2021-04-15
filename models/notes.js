@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const notesSchema = mongoose.Schema({
-    timestamp: Date.now(),
-    body: String, required: "Please enter note, NOW!"
+    date: { type: Date, default: Date.now },
+    body: {type: String, required: "Please enter note, NOW!" }
 });
 
 const Note = mongoose.model("Note", notesSchema)
