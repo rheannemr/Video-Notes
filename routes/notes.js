@@ -15,9 +15,9 @@ Router.get("/", async (req, res) =>{
 
 Router.post("/", async (req, res) =>{
     try{
-        const notes = await Note.create(req.body)
+        const note = await Note.create(req.body)
         res.status(201)
-        res.send(Note._id)
+        res.send(note._id)
         console.log("We got a note w/ ", req.body)
     }catch(err){
         res.status(501)
