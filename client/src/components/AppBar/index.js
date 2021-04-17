@@ -10,7 +10,7 @@ import SearchPage from '../pages/SearchPage';
 import VideoEditor from '../pages/VideoEditor';
 
 function NavBar() {
-  const routes = ["/signup", "/searchpage", "/videoeditor"];
+  const routes = ["/signup", "/search", "/videoeditor"];
 
   return (
     <div className = "appBar">
@@ -42,7 +42,7 @@ function NavBar() {
 
         <Switch>
           <Route path = "/signup" component = {Signup}/>
-          <Route path = "/searchpage" component = {SearchPage}/>
+          <Route path = "/search" component = {SearchPage}/>
           <Route path = "/videoeditor" component = {VideoEditor}/>
         </Switch>
 

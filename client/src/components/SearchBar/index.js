@@ -21,7 +21,7 @@ function SearchBar(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.handleFormSubmit(setTerm(termState))
+        props.handleFormSubmit(termState)
     }
     return (
         <div>
