@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -10,24 +10,38 @@ import Typography from "@material-ui/core/Typography";
 function NoteSaver() {
     const [notes, setNotes] = useState([]);
     const [reUpload, triggerReUpload] = useState("");
+    const [videoId, setVideoId] = useState('');
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setVideoId(location.pathname.split('/')[2]);
+    }, [location])
+
     useEffect(() => {
         fetch("/api/notes")
             .then(res => res.json())
             .then(res => console.log("notes are: ", setNotes(res)));
     }, [reUpload]);
     return (
-        <Router>
-            <div style={{ marginTop: "20vh" }}>
-                <div>
-                    <Switch>
-                        <Route>
-                            <NewNote triggerReUpload={triggerReUpload} />
-                        </Route>
-                    </Switch>
-                </div>
-            </div>
-        </Router>
+        <div style={{ marginTop: "20vh" }}>
+            <VideoPlayer videoId={videoId} />
+            <NewNote triggerReUpload={triggerReUpload} />
+        </div>
     );
+}
+
+function VideoPlayer({ videoId }) {
+    const videoSrc = `https://www.youtube.com/embed/${videoId}`;
+    return (<div>
+        <div className='ui embed'>
+            <iframe src={videoSrc} allowFullScreen title='Video player' />
+        </div>
+        {/* <div className='ui segment'>
+            <h4 className='ui header'>{video.snippet.title}</h4>
+            <p>{video.snippet.description}</p>
+        </div> */}
+    </div>)
 }
 function NewNote({ triggerReUpload }) {
     const [title, setTitle] = useState("");
