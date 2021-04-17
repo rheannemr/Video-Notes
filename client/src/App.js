@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
 import TabPanel from './components/Tab';
 import SearchPage from './components/pages/SearchPage';
 import NoteSaver from './components/pages/VideoEditor';
@@ -13,9 +12,6 @@ function App() {
   return (
     <div>
       <TabPanel />
-      <Button variant="contained" color="primary">
-        Hello World
-    </Button>
       <SearchPage />
       <NoteSaver />
     </div>
