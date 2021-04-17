@@ -17,6 +17,23 @@ export default function FormPropsTextFields() {
   return (
     <form style={{ marginTop: "20vh" }} className={classes.root} noValidate autoComplete="off">
       <div>
+
+      <h2>Login</h2>
+        <TextField
+          required
+          id="outlined-required"
+          label="Required"
+          defaultValue="Email Address"
+          variant="outlined"
+        />
+        <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          variant="outlined"
+        />
+        <h2>Create An Account</h2>
         <TextField
           required
           id="outlined-required"
