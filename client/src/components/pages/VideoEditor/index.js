@@ -5,7 +5,7 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
-// import Note from "../../../../../models/notes";
+
 
 function NoteSaver() {
     const [notes, setNotes] = useState([]);
@@ -18,29 +18,11 @@ function NoteSaver() {
     return (
         <Router>
             <div style={{ marginTop: "20vh" }}>
-                <Link to="./"> All Notes</Link>
-                <br />
                 <Link to="./new-note"> Add a note</Link>
                 <div>
                     <Switch>
                         <Route path="/new-note">
                             <NewNote triggerReUpload={triggerReUpload} />
-                        </Route>
-                        <Route path="/">
-                            {notes.map(note => (
-                                <Accordion>
-                                    <AccordionSummary
-                                        // expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                    >
-                                        <Typography>{note.title}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <Typography>{note.body}</Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-                            ))}
                         </Route>
                     </Switch>
                 </div>
