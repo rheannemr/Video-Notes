@@ -25,7 +25,7 @@ function SearchBar(props) {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form style={{ marginTop: "20vh" }} onSubmit={handleSubmit}>
                 <div>
                     <input onChange={handleInputChange} name='video-search' type='text' value={termState} />
                 </div>

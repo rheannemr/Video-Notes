@@ -17,7 +17,7 @@ function NoteSaver() {
     }, [reUpload]);
     return (
         <Router>
-            <div>
+            <div style={{ marginTop: "20vh" }}>
                 <Link to="./"> All Notes</Link>
                 <br />
                 <Link to="./new-note"> Add a note</Link>
@@ -72,7 +72,7 @@ function NewNote({ triggerReUpload }) {
                 label="Title"
                 style={{ margin: 8 }}
                 placeholder="Enter the note title here"
-                fullWidth
+                // fullWidth
                 margin="normal"
                 InputLabelProps={{
                     shrink: true,
@@ -86,7 +86,7 @@ function NewNote({ triggerReUpload }) {
                 label="Body"
                 style={{ margin: 8 }}
                 placeholder="Enter the note body here"
-                fullWidth
+                // fullWidth
                 margin="normal"
                 InputLabelProps={{
                     shrink: true,
@@ -95,7 +95,7 @@ function NewNote({ triggerReUpload }) {
                 multiline
             />
             <Button onClick={handleSave} variant="contained" color="primary">
-                Primary
+                Save Note
             </Button>
         </div>
     );

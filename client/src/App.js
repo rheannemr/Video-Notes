@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import TabPanel from './components/Tab';
+import NavBar from './components/AppBar/index';
 import SearchPage from './components/pages/SearchPage';
 import NoteSaver from './components/pages/VideoEditor';
 
@@ -11,9 +11,9 @@ function App() {
 
   return (
     <div>
-      <TabPanel />
-      <SearchPage />
-      <NoteSaver />
+      <NavBar />
+      {/* <SearchPage /> */}
+      {/* <NoteSaver /> */}
     </div>
   );
 }
