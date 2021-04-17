@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-const notesApiRoute = require("./routes/notes")
+const notesApiRoute = require("./routes/notes");
+// const { db } = require("./models/notes");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -22,6 +23,18 @@ app.use("/api/notes", notesApiRoute)
 
 // Send every other request to the React app
 
+// Mongo Connection
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/video-notes", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+})
+
+const db = mongoose.connection
+db.on("error", (error) => console.log(error));
+db.once("open", () => console.log("Connected to Database"));
 
 // Define any API routes before this runs
 app.get("*", (req, res) => {
