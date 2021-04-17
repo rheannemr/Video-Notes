@@ -22,11 +22,14 @@ function SavedNotes() {
                     <Switch>
                         <Route path="/">
                             {notes.map(note => (
-                                <Accordion>
+                                <Accordion
+                                style = {{width: "50%"}}
+                                >
                                     <AccordionSummary
                                         // expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
+                                        margin= "normal"
                                     >
                                         <Typography>{note.title}</Typography>
                                     </AccordionSummary>
