@@ -1,0 +1,13 @@
+GET https://localhost:3000/api/notes
+
+###
+
+POST https://localhost:300/api/notes HTTP/1.1
+content-type: application/json
+
+{
+    "title": "First Title Post",
+    "text": "body note text"
+}
+
+###
