@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './components/AppBar/index';
+import NavBar from './components/NavBar/index';
 import SearchPage from './components/pages/SearchPage';
-import NoteSaver from './components/pages/VideoEditor';
+import VideoEditor from './components/pages/VideoEditor';
+import Signup from './components/pages/Signup';
+import {  BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -10,9 +12,15 @@ function App() {
   })
 
   return (
-    <div>
+    <BrowserRouter>
       <NavBar />
-    </div>
+      <Switch>
+        <Route path="/signup" component={Signup} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/videoeditor/*" component={VideoEditor} />
+      </Switch>
+    </BrowserRouter>
+
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import ContainedButtons from "../RedirectBtn";
 
 function VideoDetails({video}) {
     if (!video) {
@@ -6,7 +7,7 @@ function VideoDetails({video}) {
     }
 
     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
-    console.log(typeof(video));
+    console.log((video));
     return (
         <div>
             <div className='ui embed'>
@@ -16,6 +17,7 @@ function VideoDetails({video}) {
                 <h4 className='ui header'>{video.snippet.title}</h4>
                 <p>{video.snippet.description}</p>
             </div>
+            <ContainedButtons videoId={video.id.videoId} />
         </div>
 
     )
