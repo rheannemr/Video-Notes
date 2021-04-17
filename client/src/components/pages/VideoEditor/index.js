@@ -18,10 +18,9 @@ function NoteSaver() {
     return (
         <Router>
             <div style={{ marginTop: "20vh" }}>
-                <Link to="./new-note"> Add a note</Link>
                 <div>
                     <Switch>
-                        <Route path="/new-note">
+                        <Route>
                             <NewNote triggerReUpload={triggerReUpload} />
                         </Route>
                     </Switch>
