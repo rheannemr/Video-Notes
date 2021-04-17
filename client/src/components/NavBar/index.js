@@ -3,7 +3,7 @@ import { Tabs, Tab, AppBar } from '@material-ui/core';
 import {  Link } from 'react-router-dom';
 
 function NavBar() {
-  const routes = ["/signup", "/search", "/videoeditor"];
+  const routes = ["/signup", "/search", "/videoeditor", "/savednotes"];
 
   return (
     <div className="appBar">
@@ -22,10 +22,16 @@ function NavBar() {
             to={routes[1]}
           />
           <Tab
-            label="Video Notes Editor"
+            label="Video Notes"
             value={routes[2]}
             component={Link}
             to={routes[2]}
+          />
+          <Tab
+            label="Saved Notes"
+            value={routes[3]}
+            component={Link}
+            to={routes[3]}
           />
         </Tabs>
       </AppBar>
