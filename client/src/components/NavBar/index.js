@@ -3,35 +3,35 @@ import { Tabs, Tab, AppBar } from '@material-ui/core';
 import {  Link } from 'react-router-dom';
 
 function NavBar() {
-  const routes = ["/signup", "/search", "/videoeditor", "/savednotes"];
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <div className="appBar">
       <AppBar>
-        <Tabs>
+        <Tabs value={value} onChange={handleChange}>
           <Tab
             label="Signup"
-            value={routes[0]}
             component={Link}
-            to={routes[0]}
+            to={"/signup"}
           />
           <Tab
             label="Search Page"
-            value={routes[1]}
             component={Link}
-            to={routes[1]}
+            to={"/search"}
           />
           <Tab
             label="Video Notes"
-            value={routes[2]}
             component={Link}
-            to={routes[2]}
+            to={"/videoeditor"}
           />
           <Tab
             label="Saved Notes"
-            value={routes[3]}
             component={Link}
-            to={routes[3]}
+            to={"/savednotes"}
           />
         </Tabs>
       </AppBar>
