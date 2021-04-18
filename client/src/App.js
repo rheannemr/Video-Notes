@@ -4,7 +4,7 @@ import SearchPage from './components/pages/SearchPage';
 import VideoEditor from './components/pages/VideoEditor';
 import Signup from './components/pages/Signup';
 import SavedNotes from './components/pages/SavedNotes';
-import {  BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   useEffect(() => {

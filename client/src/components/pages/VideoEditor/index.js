@@ -43,7 +43,7 @@ function NewNote({ triggerReUpload }) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const handleSave = () => {
-        fetch("api/notes", {
+        fetch("/api/notes", {
             method: "POST",
             body: JSON.stringify({ title, body }),
             headers: {
@@ -53,6 +53,7 @@ function NewNote({ triggerReUpload }) {
         })
             .then(data => triggerReUpload(data))
             .catch(err => alert(err));
+        // console.log("data from inside NEWNOTE in VideoEditor folder: ", req.body)
     };
     return (
         <div>
