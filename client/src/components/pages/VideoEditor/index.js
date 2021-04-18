@@ -43,7 +43,7 @@ function NewNote({ triggerReUpload }) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const handleSave = () => {
-        fetch("api/notes", {
+        fetch("/api/notes", {
             method: "POST",
             body: JSON.stringify({ title, body }),
             headers: {
