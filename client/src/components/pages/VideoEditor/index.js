@@ -53,6 +53,7 @@ function NewNote({ triggerReUpload }) {
         })
             .then(data => triggerReUpload(data))
             .catch(err => alert(err));
+        // console.log("data from inside NEWNOTE in VideoEditor folder: ", req.body)
     };
     return (
         <div>
