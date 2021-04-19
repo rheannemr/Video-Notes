@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Container } from "@material-ui/core";
+import GridItem from "../../Grid/index";
 
 
 function NoteSaver() {
@@ -20,24 +21,33 @@ function NoteSaver() {
             .then(res => console.log("notes are: ", setNotes(res)));
     }, [reUpload]);
     return (
-        <div style={{ marginTop: "20vh" }}>
-            <VideoPlayer videoId={videoId} />
+        <>
+        <Container style={{padding: '5px'}}>
+        <div style={{ margin: "20vh" }}>
+            <VideoPlayer videoId={videoId}/>
             <NewNote triggerReUpload={triggerReUpload} />
         </div>
+        </Container>
+        </>
+        
     );
 }
 
 function VideoPlayer({ videoId }) {
     const videoSrc = `https://www.youtube.com/embed/${videoId}`;
     return (<div>
+        <GridItem>
         <div className='ui embed'>
-            <iframe src={videoSrc} allowFullScreen title='Video player' />
+            <iframe src={videoSrc} allowFullScreen title='Video player' style={{width: '650px', height: '400px', alignItems: 'flex-start'}} />
         </div>
+        </GridItem>
         {/* <div className='ui segment'>
             <h4 className='ui header'>{video.snippet.title}</h4>
             <p>{video.snippet.description}</p>
         </div> */}
-    </div>)
+    </div>
+    
+    )
 }
 function NewNote({ triggerReUpload }) {
     const [title, setTitle] = useState("");
@@ -57,6 +67,7 @@ function NewNote({ triggerReUpload }) {
     };
     return (
         <div>
+            <GridItem>
             <TextField
                 value={title}
                 onChange={event => setTitle(event.target.value)}
@@ -69,7 +80,7 @@ function NewNote({ triggerReUpload }) {
                 InputLabelProps={{
                     shrink: true,
                 }}
-                variant="filled"
+                variant="outlined"
             />
             <TextField
                 value={body}
@@ -83,12 +94,12 @@ function NewNote({ triggerReUpload }) {
                 InputLabelProps={{
                     shrink: true,
                 }}
-                variant="filled"
-                multiline
+                variant="outlined"
             />
             <Button onClick={handleSave} variant="contained" color="primary">
                 Save Note
             </Button>
+            </GridItem>
         </div>
     );
 }

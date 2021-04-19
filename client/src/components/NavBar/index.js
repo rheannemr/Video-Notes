@@ -12,7 +12,7 @@ function NavBar() {
   return (
     <div className="appBar">
       <AppBar>
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs variant='fullWidth' value={value} onChange={handleChange}>
           <Tab
             label="Signup"
             component={Link}
@@ -22,11 +22,6 @@ function NavBar() {
             label="Search Page"
             component={Link}
             to={"/search"}
-          />
-          <Tab
-            label="Video Notes"
-            component={Link}
-            to={"/videoeditor"}
           />
           <Tab
             label="Saved Notes"
