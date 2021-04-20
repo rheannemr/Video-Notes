@@ -12,24 +12,10 @@ const notesSchema = mongoose.Schema({
         type: String
     },
     users: {
-        type: mongoose / Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }
 });
-
-loggingIn: [
-    {
-        username: {
-            type: String,
-            required: "Please enter username"
-        },
-        password: {
-            type: String,
-            required: "please enter password"
-        }
-
-    }]
-
 
 
 const Note = mongoose.model("Note", notesSchema)
