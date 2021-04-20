@@ -11,21 +11,26 @@ const notesSchema = mongoose.Schema({
     body: {
         type: String
     },
-
-    loggingIn: [
-        {
-            username: {
-                type: String,
-                required: "Please enter username"
-            },
-            password: {
-                type: String,
-                required: "please enter password"
-            }
-
-        }]
-
+    users: {
+        type: mongoose / Schema.Types.ObjectId,
+        ref: 'user'
+    }
 });
+
+loggingIn: [
+    {
+        username: {
+            type: String,
+            required: "Please enter username"
+        },
+        password: {
+            type: String,
+            required: "please enter password"
+        }
+
+    }]
+
+
 
 const Note = mongoose.model("Note", notesSchema)
 module.exports = Note;
