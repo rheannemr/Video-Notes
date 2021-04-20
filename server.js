@@ -3,6 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const notesApiRoute = require("./routes/notes");
+
 const cors = require("cors");
 const passport = require("passport");
 const passportLocal = require("passport-local").Strategy;
