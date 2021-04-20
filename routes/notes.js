@@ -1,6 +1,6 @@
 const Router = require("express").Router();
 const Note = require("../models/notes");
-const UserModel = require("../models/users");
+const user = require("../models/users");
 
 Router.get("/", async (req, res) => {
     try {
@@ -46,7 +46,7 @@ Router.post("/login", (req, res, next) => {
 });
 
 Router.post("/signup", (req, res) => {
-    UserModel.findOne({ username: req.body.username }, async (err, doc) => {
+    user.findOne({ username: req.body.username }, async (err, doc) => {
         if (err) throw err;
         if (doc) res.send("User Already Exists");
         if (!doc) {
