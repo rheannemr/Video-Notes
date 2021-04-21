@@ -3,6 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const notesApiRoute = require("./routes/notes");
+const passportApiRoute = require("./models/users")
 
 const cors = require("cors");
 const passport = require("passport");
@@ -28,7 +29,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-app.use("/api/notes", notesApiRoute)
+app.use("/api/notes", notesApiRoute);
+app.use("/signup", passportApiRoute)
 
 // Send every other request to the React app
 
