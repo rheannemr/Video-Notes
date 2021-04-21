@@ -43,7 +43,7 @@ Router.post("/login", (req, res, next) => {
         }
     })(req, res, next);
 });
-Router.post("/register", (req, res) => {
+Router.post("/signup", (req, res) => {
     notesSchema.findOne({ username: req.body.username }, async (err, doc) => {
         if (err) throw err;
         if (doc) res.send("User Already Exists");

@@ -1,7 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { TextField, Button, Container } from "@material-ui/core";
-import GridItem from "../../Grid/index";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
+function CenteredGrid(props) {
+  const classes = useStyles();
+
+  return (
+    
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>{<VideoPlayer videoId={props.videoId}/>}</Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>{<NewNote triggerReUpload={props.triggerReUpload} />}</Paper>
+        </Grid>
+      </Grid>
+    </div>
+  );
+}
 
 
 function NoteSaver() {
@@ -21,14 +52,9 @@ function NoteSaver() {
             .then(res => console.log("notes are: ", setNotes(res)));
     }, [reUpload]);
     return (
-        <>
-        <Container style={{padding: '5px'}}>
-        <div style={{ margin: "20vh" }}>
-            <VideoPlayer videoId={videoId}/>
-            <NewNote triggerReUpload={triggerReUpload} />
-        </div>
+        <Container style={{padding: '5px', margin: '20vh'}}>
+        <CenteredGrid  videoId={videoId} triggerReUpload={triggerReUpload}/> 
         </Container>
-        </>
         
     );
 }
@@ -36,11 +62,9 @@ function NoteSaver() {
 function VideoPlayer({ videoId }) {
     const videoSrc = `https://www.youtube.com/embed/${videoId}`;
     return (<div>
-        <GridItem>
         <div className='ui embed'>
             <iframe src={videoSrc} allowFullScreen title='Video player' style={{width: '650px', height: '400px', alignItems: 'flex-start'}} />
         </div>
-        </GridItem>
         {/* <div className='ui segment'>
             <h4 className='ui header'>{video.snippet.title}</h4>
             <p>{video.snippet.description}</p>
@@ -67,7 +91,6 @@ function NewNote({ triggerReUpload }) {
     };
     return (
         <div>
-            <GridItem>
             <TextField
                 value={title}
                 onChange={event => setTitle(event.target.value)}
@@ -99,7 +122,6 @@ function NewNote({ triggerReUpload }) {
             <Button onClick={handleSave} variant="contained" color="primary">
                 Save Note
             </Button>
-            </GridItem>
         </div>
     );
 }
