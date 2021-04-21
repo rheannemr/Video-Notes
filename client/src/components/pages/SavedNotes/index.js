@@ -1,48 +1,85 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography, Paper } from "@material-ui/core";
+import { Timeline, TimelineItem, TimelineSeparator, TimelineContent, TimelineOppositeContent, TimelineConnector, TimelineDot } from '@material-ui/lab';
+import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        padding: '2px 8px',
+    },
+    secondaryTail: {
+        backgroundColor: theme.palette.secondary.main,
+    },
+}));
 
 function SavedNotes() {
+    const classes = useStyles();
     const [notes, setNotes] = useState([]);
     const [reUpload, triggerReUpload] = useState("");
-    useEffect(() => {
-        fetch("/api/notes")
-            .then(res => res.json())
-            .then(res => console.log("notes are: ", setNotes(res)));
-    }, [reUpload]);
+     useEffect(() => {
+         fetch("/api/notes")
+             .then(res => res.json())
+             .then(res => console.log("notes are: ", setNotes(res)));
+     }, [reUpload]);
     return (
         <Router>
-            <div style={{ marginTop: "20vh" }}>
+            <div>
                 <div>
-                    <Switch>
-                        <Route path="/">
-                            {notes.map(note => (
-                                <Accordion
-                                    style={{ width: "50%" }}
-                                >
-                                    <AccordionSummary
-                                        // expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        margin="normal"
-                                    >
-                                        <Typography>{note.title}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <Typography>{note.body}</Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-                            ))}
-                        </Route>
-                    </Switch>
-                </div>
+            <Switch>
+        <Route path="/">
+            {notes.map(note => (
+                <Timeline align="alternate" style={{ marginTop: "20vh" }}>
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary">
+                                Video time
+                                    </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <LaptopMacIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    {note.title}
+                                </Typography>
+                                <Typography>{note.body}</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary">
+                                Video time
+                                        </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot color="primary">
+                                <LaptopMacIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    {note.title}
+                                </Typography>
+                                <Typography>{note.body}</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                </Timeline>
+            ))}
+        </Route>
+        </Switch>
+        </div>
             </div>
         </Router>
     );
 }
-
 export default SavedNotes;
