@@ -43,9 +43,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/video-notes", {
   useFindAndModify: false
 })
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "http://localhost:3000", // <-- location of the react app were connecting to
@@ -64,15 +61,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
 
-// ------------------------------------Middleware------------------------------------
-const db = mongoose.connection
-db.on("error", (error) => console.log(error));
-db.once("open", () => console.log("Connected to Database"));
+// Define API routes here
+app.use("/api/notes", notesApiRoute)
 
+// ------------------------------------Middleware------------------------------------
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
+
+const db = mongoose.connection
+db.on("error", (error) => console.log(error));
+db.once("open", () => console.log("Connected to Database"));
+
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
