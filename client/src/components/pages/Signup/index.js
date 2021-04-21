@@ -39,7 +39,7 @@ function Passport() {
     Axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:3001/user",
+      url: "http://localhost:3000/user",
     }).then((res) => console.log("getUser GET console.log of res: ", res));
   };
 

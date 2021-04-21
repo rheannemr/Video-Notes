@@ -3,6 +3,8 @@ const path = require("path");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const notesApiRoute = require("./routes/notes");
+const passportApiRoute = require("./models/users")
+
 const cors = require("cors");
 const passport = require("passport");
 const passportLocal = require("passport-local").Strategy;
@@ -25,6 +27,10 @@ app.use(morgan("tiny"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Define API routes here
+app.use("/api/notes", notesApiRoute);
+app.use("/signup", passportApiRoute)
 
 // Send every other request to the React app
 

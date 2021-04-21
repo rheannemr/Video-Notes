@@ -1,5 +1,6 @@
 const Router = require("express").Router();
 const Note = require("../models/notes");
+const user = require("../models/users");
 
 Router.get("/", async (req, res) => {
     try {
@@ -43,8 +44,9 @@ Router.post("/login", (req, res, next) => {
         }
     })(req, res, next);
 });
+
 Router.post("/signup", (req, res) => {
-    notesSchema.findOne({ username: req.body.username }, async (err, doc) => {
+    user.findOne({ username: req.body.username }, async (err, doc) => {
         if (err) throw err;
         if (doc) res.send("User Already Exists");
         if (!doc) {
@@ -59,6 +61,7 @@ Router.post("/signup", (req, res) => {
         }
     });
 });
+
 Router.get("/user", (req, res) => {
     res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
