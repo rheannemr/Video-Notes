@@ -3,7 +3,7 @@ import ContainedButtons from "../RedirectBtn";
 
 function VideoDetails({video}) {
     if (!video) {
-        return <div>Loading ...</div>;
+        return <div></div>;
     }
 
     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
