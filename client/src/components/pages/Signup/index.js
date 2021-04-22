@@ -31,7 +31,7 @@ function Passport() {
         password: loginPassword
       },
       withCredentials: true,
-      url: "http://localhost:3001/login",
+      url: "http://localhost:3000/login",
     }).then((res) => console.log("login POST console.log of res: ", res));
   };
 

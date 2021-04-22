@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+// const User = require("./users")
 
 const notesSchema = mongoose.Schema({
     title: {
@@ -11,10 +12,19 @@ const notesSchema = mongoose.Schema({
     body: {
         type: String
     },
-    users: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-    }
+    users: [{
+        // id: {
+        //     type: mongoose.Schema.Types.ObjectId,
+        //     ref: "User"
+        // },
+        username: {
+            type: String
+        },
+        password: {
+            type: String
+        }
+    }]
+
 });
 
 

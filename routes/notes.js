@@ -1,6 +1,5 @@
 const Router = require("express").Router();
 const Note = require("../models/notes");
-const user = require("../models/users");
 
 Router.get("/", async (req, res) => {
     try {
@@ -46,7 +45,7 @@ Router.post("/login", (req, res, next) => {
 });
 
 Router.post("/signup", (req, res) => {
-    user.findOne({ username: req.body.username }, async (err, doc) => {
+    Note.findOne({ username: req.body.username }, async (err, doc) => {
         if (err) throw err;
         if (doc) res.send("User Already Exists");
         if (!doc) {
@@ -56,14 +55,23 @@ Router.post("/signup", (req, res) => {
                 username: req.body.username,
                 password: hashedPassword,
             });
-            await newUser.save();
+            await newUser.save(req.body);
             res.send("User Created");
         }
     });
 });
 
-Router.get("/user", (req, res) => {
-    res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
+Router.get("/user", async (req, res) => {
+    const userPassword = await Note.find()
+    res.json(userPassword)
+        // Note.find({})
+        //     .then(data => {
+        //         res.json(data)
+        //     })
+        .catch(err => {
+            res.json(err)
+        });
+    // res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
 module.exports = Router;
