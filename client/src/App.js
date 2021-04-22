@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/signup" component={Signup} />
+        <Route path="/" component={Signup} />
         <Route path="/search" component={SearchPage} />
         <Route path="/videoeditor/*" component={VideoEditor} />
         <Route path="/savednotes" component={SavedNotes} />
