@@ -9,6 +9,8 @@ function Passport() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+
+
   const signup = () => {
     console.log("username is: ", signUpUsername);
     console.log("password is: ", signUpPassword);
@@ -22,6 +24,9 @@ function Passport() {
       url: "http://localhost:3000/signup",
     }).then((res) => console.log("signup POST console.log of res: ", res));
   };
+
+
+
 
   const login = () => {
     Axios({

@@ -1,5 +1,6 @@
 const Router = require("express").Router();
 const Note = require("../models/notes");
+const bcrypt = require('bcrypt');
 
 Router.get("/", async (req, res) => {
     try {
@@ -14,7 +15,7 @@ Router.get("/", async (req, res) => {
 });
 
 Router.post("/", async (req, res) => {
-    console.log("req.body from post route: ", req.body)
+    console.log("req.body from note post route: ", req.body)
     try {
 
         const note = await Note.create(req.body)
@@ -44,22 +45,47 @@ Router.post("/login", (req, res, next) => {
     })(req, res, next);
 });
 
-Router.post("/signup", (req, res) => {
-    Note.findOne({ username: req.body.username }, async (err, doc) => {
-        if (err) throw err;
-        if (doc) res.send("User Already Exists");
-        if (!doc) {
-            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+Router.post("/signup", async (req, res, err, doc) => {
+    console.log("!!! HELLO FROM SIGNUP ROUTE!!")
+    if (err) {
+        throw err;
+    }
+    if (doc) {
+        res.send("User Already Exists")
+    } else {
+        const { username, passowrd } = req.body;
+        const newUser = new User({
+            username,
+            passowrd,
+        });
+        console.log(newUser, "NEW USER TEST!!!");
+        const salt = await bcrypt.genSalt(15);
+        newUser.password = await bcrypt.hash(password, salt);
+        await newUser.save();
+        res.send("User Created");
+    }
+})
 
-            const newUser = new User({
-                username: req.body.username,
-                password: hashedPassword,
-            });
-            await newUser.save(req.body);
-            res.send("User Created");
-        }
-    });
-});
+// Router.post("/signup", (req, res) => {
+//     console.log("hello from /signup post route!!")
+//     Note.findOne({ username: req.body.username }, async (err, doc) => {
+//         if (err) throw err;
+//         if (doc) res.send("User Already Exists");
+//         if (!doc) {
+//             const { username, passowrd } = req.body;
+//             // const hashedPassword = await bcrypt.hash(req.body.password, 10);
+//             const newUser = new User({
+//                 username: req.body,
+//                 password: hashedPassword,
+//             });
+//             const salt = await bcrypt.genSalt(15);
+//             newUser.password = await bcrypt.hash(password, salt);
+//             await newUser.save();
+//             res.send("User Created");
+//             console.log("newUser console.log: ", newUser);
+//         }
+//     });
+// });
 
 Router.get("/user", async (req, res) => {
     const userPassword = await Note.find()

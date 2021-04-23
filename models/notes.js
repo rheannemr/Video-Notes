@@ -12,18 +12,13 @@ const notesSchema = mongoose.Schema({
     body: {
         type: String
     },
-    users: [{
-        // id: {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     ref: "User"
-        // },
-        username: {
-            type: String
-        },
-        password: {
-            type: String
-        }
-    }]
+
+    username: {
+        type: String
+    },
+    password: {
+        type: String
+    }
 
 });
 
