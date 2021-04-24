@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import Timeline from '../Timeline/index';
 
-function NewNote({ triggerReUpload }) {
+function NewNote({ triggerReUpload, videoId }) {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const handleSave = () => {
         fetch("/api/notes", {
             method: "POST",
-            body: JSON.stringify({ title, body }),
+            body: JSON.stringify({ title, body, videoId }),
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function NewNote({ triggerReUpload }) {
             <Button onClick={handleSave} variant="contained" color="primary">
                 Save Note
             </Button>
-            <Timeline />
+            <Timeline  videoId='KQ0gFidlro8'/>
         </div>
     );
 }

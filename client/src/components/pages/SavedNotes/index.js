@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MySavedVideoNotes from "../../MySaved"
+import VideoPlayer from "../../VideoPlayer";
 
-function SavedNotes() {
+function SavedNotes(props) {
+
+    const [reUpload, triggerReUpload] = useState("");
+
+    useEffect(() => {
+        fetch("/api/notes")
+            .then(res => res.json())
+            .then(res => console.log("notes are: ", setNotes(res)));
+    }, [reUpload]);
+
     return (
         <>
-        <MySavedVideoNotes />
+        <MySavedVideoNotes videoId='KQ0gFidlro8' />
+
+        
         </>
     )
 }

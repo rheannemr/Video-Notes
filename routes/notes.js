@@ -4,12 +4,12 @@ const user = require("../models/users");
 
 Router.get("/", async (req, res) => {
     try {
-        const notes = await Note.find()
+        const notes = await Note.find({ videoId: req.query.videoid })
         res.json(notes)
         console.log("We're getting all notes from Router.get('/')")
     } catch (err) {
         res.status(501)
-        res.send("oh no! Guess we'll never know what hRouterened")
+        res.send("oh no!")
         console.log("Error in the notes get route", err)
     }
 });
@@ -24,7 +24,7 @@ Router.post("/", async (req, res) => {
         console.log("We got a note w/ ", req.body)
     } catch (err) {
         res.status(501)
-        res.send("oh no! Guess we'll never know what hRouterened")
+        res.send("oh no!")
         console.log("Error in the notes post route", err)
     }
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -15,6 +15,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import VideoPlayer from "../VideoPlayer/index";
+import VideoDetails from '../VideoDetails';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +42,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MySavedVideoNotes() {
+export default function MySavedVideoNotes(props) {
+
+  const [notes, setNotes] = useState([]);
+  const [reUpload, triggerReUpload] = useState("");
+  useEffect(() => {
+      fetch("/api/notes")
+          .then(res => res.json())
+          .then(res => console.log("notes are: ", setNotes(res)));
+  }, [reUpload]);
+  console.log(props.videoId);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -65,9 +77,9 @@ export default function MySavedVideoNotes() {
         title="Video name (by ID?)"
         subheader="This is a subheader"
       />
-      <CardMedia
+      <VideoPlayer videoId={props.videoId}/> 
+        <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
         title="Paella dish"
       />
       <CardContent>
@@ -94,12 +106,15 @@ export default function MySavedVideoNotes() {
         </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Here are my saved notes for this video</Typography>
-          <Typography paragraph>
-            Note Note Note!
-          </Typography>
-        </CardContent>
+        <div>
+        {notes.map(note => (
+          <CardContent>
+                    <Typography>{note.title}</Typography>
+                    <Typography>{note.body}</Typography>
+          </CardContent>
+        ))}
+        </div>
+        
       </Collapse>
     </Card>
     </div>

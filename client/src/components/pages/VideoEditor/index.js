@@ -14,17 +14,21 @@ function NoteSaver() {
         setVideoId(location.pathname.split('/')[2]);
     }, [location])
 
-    useEffect(() => {
-        fetch("/api/notes")
-            .then(res => res.json())
-            .then(res => console.log("notes are: ", setNotes(res)));
-    }, [reUpload]);
+    // useEffect(() => {
+    //     fetch("/api/notes")
+    //         .then(res => res.json())
+    //         .then(res => console.log("notes are: ", setNotes(res)));
+    // }, [reUpload]);
     return (
         <div>
         <Container style={{padding: '5px', margin: '20vh'}}>
         <CenteredGrid  videoId={videoId} triggerReUpload={triggerReUpload}/> 
         </Container>
-        <Link to={{pathname: "/savednotes"}}>
+        <Link to={{
+            pathname: "/savednotes",
+            notes: '',
+                      
+            }}>
           <Button variant="contained" color="primary">
               Save
           </Button>
