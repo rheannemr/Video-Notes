@@ -3,17 +3,9 @@ const path = require("path");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const notesApiRoute = require("./routes/notes");
-const passportApiRoute = require("./models/users")
 
 const cors = require("cors");
-const passport = require("passport");
-const passportLocal = require("passport-local").Strategy;
-const cookieParser = require("cookie-parser");
-const bcrypt = require("bcryptjs");
-const session = require("express-session");
-const bodyParser = require("body-parser");
-const notesSchema = require("./models/notes")
-// const { db } = require("./models/notes");
+// const session = require("express-session");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -27,10 +19,6 @@ app.use(morgan("tiny"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-// Define API routes here
-app.use("/api/notes", notesApiRoute);
-app.use("/signup", passportApiRoute)
 
 // Send every other request to the React app
 
@@ -49,17 +37,13 @@ app.use(
     credentials: true,
   })
 );
-app.use(
-  session({
-    secret: "secretcode",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-app.use(cookieParser("secretcode"));
-app.use(passport.initialize());
-app.use(passport.session());
-require("./passportConfig")(passport);
+// app.use(
+//   session({
+//     secret: "secretcode",
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
 
 // Define API routes here
 app.use("/api/notes", notesApiRoute)
