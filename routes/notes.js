@@ -4,7 +4,7 @@ const user = require("../models/users");
 
 Router.get("/", async (req, res) => {
     try {
-        const notes = await Note.find({ videoId: req.query.videoid })
+        const notes = await Note.find()
         res.json(notes)
         console.log("We're getting all notes from Router.get('/')")
     } catch (err) {

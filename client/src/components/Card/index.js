@@ -34,21 +34,21 @@ const useStyles = makeStyles((theme) => ({
 
 function MySavedVideoNotes(props) {
 
-  const [notes, setNotes] = useState([]);
-  const [reUpload, triggerReUpload] = useState("");
-  useEffect(() => {
-    fetch("/api/notes")
-      .then(res => res.json())
-      .then(res => console.log("notes are: ", setNotes(res)));
-  }, [reUpload]);
-  console.log(props.videoId);
+  // const [notes, setNotes] = useState([]);
+  // const [reUpload, triggerReUpload] = useState("");
+  // useEffect(() => {
+  //   fetch("/api/notes")
+  //     .then(res => res.json())
+  //     .then(res => console.log("notes are: ", setNotes(res)));
+  // }, [reUpload]);
+  // console.log(props.videoId);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  console.log(props.notesForVideo)
   return (
     <div>
       <h1 style={{ marginTop: "10vh" }}>My Saved Video Notes</h1>
@@ -67,7 +67,7 @@ function MySavedVideoNotes(props) {
           title="Video Name"
           subheader="This is a subheader"
         />
-        <VideoPlayer videoId={props.videoId} className={classes.media}/>
+        <VideoPlayer videoId={props.notesForVideo[0].videoId} className={classes.media}/>
         <CardMedia
           title="Saved Video"
         />
@@ -88,7 +88,7 @@ function MySavedVideoNotes(props) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <div>
-            {notes.map(note => (
+            {props.notesForVideo.map(note => (
               <CardContent>
                 <Typography>{note.title}</Typography>
                 <Typography>{note.body}</Typography>
