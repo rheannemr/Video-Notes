@@ -1,6 +1,5 @@
 import React from "react";
-import VideoItem from "../VideoItem";
-import VideoDetails from '../VideoDetails'
+import VideoDetails from "../VideoDetails";
 
 function VideoList({video, handleVideoSelect}) {
     const renderedVideos = video.map((video, i) => {

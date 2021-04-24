@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MySavedVideoNotes from "../../MySaved"
-import VideoPlayer from "../../VideoPlayer";
+import MySavedVideoNotes from "../../components/Card"
 
 function SavedNotes(props) {
-
+    const [notes, setNotes] = useState([]);
     const [reUpload, triggerReUpload] = useState("");
 
     useEffect(() => {
@@ -15,8 +14,6 @@ function SavedNotes(props) {
     return (
         <>
         <MySavedVideoNotes videoId='KQ0gFidlro8' />
-
-        
         </>
     )
 }

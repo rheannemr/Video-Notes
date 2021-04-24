@@ -1,6 +1,6 @@
-import React from 'react';
-import { Tabs, Tab, AppBar } from '@material-ui/core';
-import {  Link } from 'react-router-dom';
+import React from "react";
+import { Tabs, Tab, AppBar } from "@material-ui/core";
+import {  Link } from "react-router-dom";
 
 function NavBar() {
   const [value, setValue] = React.useState(0);
@@ -12,19 +12,19 @@ function NavBar() {
   return (
     <div className="appBar">
       <AppBar>
-        <Tabs variant='fullWidth' value={value} onChange={handleChange}>
+        <Tabs variant="fullWidth" value={value} onChange={handleChange}>
           <Tab
-            label="Signup"
+            label="Sign In"
             component={Link}
             to={"/signup"}
           />
           <Tab
-            label="Search Page"
+            label="Search Video"
             component={Link}
             to={"/search"}
           />
           <Tab
-            label="Saved Notes"
+            label="My Video Notes"
             component={Link}
             to={"/savednotes"}
           />
