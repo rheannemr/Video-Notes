@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 // const User = require("./users")
 
 const notesSchema = mongoose.Schema({
+    username: {
+        type: String
+    },
+    password: {
+        type: String
+    },
     title: {
         type: String
     },
@@ -11,14 +17,8 @@ const notesSchema = mongoose.Schema({
     },
     body: {
         type: String
-    },
-
-    username: {
-        type: String
-    },
-    password: {
-        type: String
     }
+
 
 });
 

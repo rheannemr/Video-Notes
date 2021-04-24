@@ -22,7 +22,7 @@ function Passport() {
       },
       withCredentials: true,
       url: "http://localhost:3000/signup",
-    }).then((res) => console.log("signup POST console.log of res: ", res));
+    }).then((res) => console.log("From Signup/index.js, signup POST console.log of res: ", res));
   };
 
 

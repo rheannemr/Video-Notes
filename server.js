@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 
 const notesApiRoute = require("./routes/notes");
-const signUpApiRoute = require("./routes/notes");
-const loginApiRoute = require("./routes/notes")
+const signUpApiRoute = require("./routes/routes");
+const loginApiRoute = require("./routes/routes")
 
 
 const cors = require("cors");
@@ -15,7 +15,7 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const notesSchema = require("./models/notes")
+const Note = require("./models/notes")
 // const { db } = require("./models/notes");
 
 const PORT = process.env.PORT || 3001;
@@ -47,6 +47,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/video-notes", {
   useFindAndModify: false
 })
 
+const db = mongoose.connection
+db.on("error", (error) => console.log("Not Connected to Database: ", error));
+db.once("open", () => console.log("Connected to Database"));
+
 app.use(
   cors({
     origin: "http://localhost:3000", // <-- location of the react app were connecting to
@@ -74,9 +78,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
-const db = mongoose.connection
-db.on("error", (error) => console.log(error));
-db.once("open", () => console.log("Connected to Database"));
+
 
 
 

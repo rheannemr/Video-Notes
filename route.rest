@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/notes/
+GET http://localhost:3000/api/notes
 
 ###
 
@@ -16,8 +16,8 @@ POST http://localhost:3000/signup HTTP/1.1
 content-type: application/json
 
 {
-         "username": "usernameposthere",
-        "password": "passwordposthere"
+         "username": "asda",
+        "password": "asda"
 }
 
 ###
