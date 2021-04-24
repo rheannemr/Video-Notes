@@ -13,19 +13,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function SavedNotes() {
+function SavedNotes(props) {
     const classes = useStyles();
     const [notes, setNotes] = useState([]);
     const [reUpload, triggerReUpload] = useState("");
     useEffect(() => {
-        fetch("/api/notes")
+        console.log(props.videoId)
+        fetch(`/api/notes/?videoid=KQ0gFidlro8`)
             .then(res => res.json())
             .then(res => console.log("notes are: ", setNotes(res)));
     }, [reUpload]);
     return (
         <>
-            {notes.map(note => (
+            
                 <Timeline align="alternate" style={{ marginTop: "20vh" }}>
+                {notes.map(note => (
                     <TimelineItem>
                         <TimelineOppositeContent>
                             <Typography variant="body2" color="textSecondary">
@@ -47,61 +49,10 @@ function SavedNotes() {
                             </Paper>
                         </TimelineContent>
                     </TimelineItem>
-                    <TimelineItem>
-                        <TimelineOppositeContent>
-                            <Typography variant="body2" color="textSecondary">
-                                Video Time
-                        </Typography>
-                        </TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineDot color="primary">
-                                <NotesRoundedIcon />
-                            </TimelineDot>
-                            <TimelineConnector />
-                        </TimelineSeparator>
-                        <TimelineContent>
-                            <Paper elevation={3} className={classes.paper}>
-                                <Typography variant="h6" component="h1">
-                                {note.title}
-                                </Typography>
-                                <Typography>{note.body}</Typography>
-                            </Paper>
-                        </TimelineContent>
-                    </TimelineItem>
-                    <TimelineItem>
-                        <TimelineSeparator>
-                            <TimelineDot color="primary" variant="outlined">
-                                <NotesRoundedIcon />
-                            </TimelineDot>
-                            <TimelineConnector className={classes.secondaryTail} />
-                        </TimelineSeparator>
-                        <TimelineContent>
-                            <Paper elevation={3} className={classes.paper}>
-                                <Typography variant="h6" component="h1">
-                                {note.title}
-                                </Typography>
-                                <Typography>{note.body}</Typography>
-                            </Paper>
-                        </TimelineContent>
-                    </TimelineItem>
-                    <TimelineItem>
-                        <TimelineSeparator>
-                            <TimelineDot color="secondary">
-                                <NotesRoundedIcon />
-                            </TimelineDot>
-                        </TimelineSeparator>
-                        <TimelineContent>
-                            <Paper elevation={3} className={classes.paper}>
-                                <Typography variant="h6" component="h1">
-                                {note.title}
-                                </Typography>
-                                <Typography>{note.body}</Typography>
-                            </Paper>
-                        </TimelineContent>
-                    </TimelineItem>
+                ))}
                 </Timeline>
             
-            ))}
+            
         </>
     )}
 export default SavedNotes;

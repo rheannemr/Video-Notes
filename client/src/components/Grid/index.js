@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
             <Paper className={classes.paper}>{<VideoPlayer videoId={props.videoId}/>}</Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper className={classes.paper}>{<NewNote triggerReUpload={props.triggerReUpload} />}</Paper>
+            <Paper className={classes.paper}>{<NewNote triggerReUpload={props.triggerReUpload} videoId={props.videoId} />}</Paper>
           </Grid>
         </Grid>
       </div>

@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const notesSchema = mongoose.Schema({
+    videoId: {
+        type: String
+    },
     title: {
         type: String
     },
