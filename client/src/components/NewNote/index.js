@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
-import Timeline from '../Timeline/index';
+import NotesTimeline from "../NotesTimeline";
 
 function NewNote({ triggerReUpload, videoId }) {
     const [title, setTitle] = useState("");
@@ -51,7 +51,7 @@ function NewNote({ triggerReUpload, videoId }) {
             <Button onClick={handleSave} variant="contained" color="primary">
                 Save Note
             </Button>
-            <Timeline  videoId='KQ0gFidlro8'/>
+            <NotesTimeline videoId="KQ0gFidlro8" />
         </div>
     );
 }

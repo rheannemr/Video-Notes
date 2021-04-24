@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import NavBar from './components/NavBar/index';
-import SearchPage from './components/pages/SearchPage';
-import VideoEditor from './components/pages/VideoEditor';
-import Signup from './components/pages/Signup';
-import SavedNotes from './components/pages/SavedNotes';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import NavBar from "./components/NavBar";
+import SearchPage from "./pages/SearchPage";
+import VideoNotes from "./pages/VideoNotes";
+import Signup from "./pages/Signup";
+import SavedNotes from "./pages/SavedNotes";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   useEffect(() => {
@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" component={Signup} />
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={SearchPage} />
-        <Route path="/videoeditor/*" component={VideoEditor} />
+        <Route path="/videonotes/*" component={VideoNotes} />
         <Route path="/savednotes" component={SavedNotes} />
       </Switch>
     </BrowserRouter>

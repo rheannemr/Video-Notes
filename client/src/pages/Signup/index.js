@@ -43,12 +43,8 @@ function Passport() {
     }).then((res) => console.log("getUser GET console.log of res: ", res));
   };
 
-
-
   return (
-
-
-    <div className="App" style={{ marginTop: "20vh" }}>
+    <div className="App" style={{ marginTop: "10vh" }}>
       <div>
         <PassportInput
           title="SignUp"
@@ -71,11 +67,6 @@ function Passport() {
         </button>
 
       </div>
-
-
-
-
-
     </div>
   );
 }

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import SearchBar from "../../SearchBar/index";
-import VideoList from "../../VideoList/index";
-import VideoDetails from "../../VideoDetails/index";
-import API from "../../../utils/API"
+import SearchBar from "../../components/SearchBar";
+import VideoList from "../../components/VideoList";
+import VideoDetails from "../../components/VideoDetails";
+import API from "../../utils/API"
 
 function SearchPage() {
     const [videoState, setVideo] = useState([]);
-    const [selectedState, setSelected] = useState('');
+    const [selectedState, setSelected] = useState("");
 
     const handleSubmit = async (termForSearchBar) => {
-        const response = await API.get('/search', {
+        const response = await API.get("/search", {
             params: {
                 q: termForSearchBar
             }

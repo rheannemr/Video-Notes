@@ -1,5 +1,5 @@
 import React from "react";
-import ContainedButtons from "../RedirectBtn";
+import RedirectBtn from "../RedirectBtn";
 
 function VideoDetails({video}) {
     if (!video) {
@@ -10,14 +10,14 @@ function VideoDetails({video}) {
     console.log((video));
     return (
         <div>
-            <div className='ui embed'>
-                <iframe src={videoSrc} allowFullScreen title='Video player'/>
+            <div className="ui embed">
+                <iframe src={videoSrc} allowFullScreen title="Video player"/>
             </div>
-            <div className='ui segment'>
-                <h4 className='ui header'>{video.snippet.title}</h4>
+            <div className="ui segment">
+                <h4 className="ui header">{video.snippet.title}</h4>
                 <p>{video.snippet.description}</p>
             </div>
-            <ContainedButtons videoId={video.id.videoId} />
+            <RedirectBtn videoId={video.id.videoId} />
         </div>
 
     )
