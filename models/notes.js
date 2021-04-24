@@ -14,9 +14,11 @@ const notesSchema = mongoose.Schema({
     body: {
         type: String
     },
-    users: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+    username: {
+        type: String
+    },
+    password: {
+        type: String
     }
 });
 

@@ -51,8 +51,7 @@ function MySavedVideoNotes(props) {
   console.log(props.notesForVideo)
   return (
     <div>
-      <h1 style={{ marginTop: "10vh" }}>My Saved Video Notes</h1>
-      <Card className={classes.root}>
+      <Card className={classes.root} style={{ marginTop: "10vh" }}>
         <CardHeader
           avatar={
             <Avatar className={classes.avatar}>
