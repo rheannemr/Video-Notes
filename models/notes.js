@@ -14,7 +14,7 @@ const notesSchema = mongoose.Schema({
     body: {
         type: String
     },
-    username: {
+    email: {
         type: String
     },
     password: {
