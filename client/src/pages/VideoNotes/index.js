@@ -17,7 +17,7 @@ function VideoNotes() {
     return (
         <div>
         <Container style={{padding: "5px", margin: "10vh"}}>
-        <CenteredGrid  videoId={videoId} triggerReUpload={triggerReUpload}/> 
+        <CenteredGrid  videoId={videoId} reUpload={reUpload} triggerReUpload={triggerReUpload}/> 
         </Container>
         </div>
     );

@@ -17,7 +17,10 @@ function NewNote({ triggerReUpload, videoId }) {
             .then(data => triggerReUpload(data))
             .catch(err => alert(err));
         // console.log("data from inside NEWNOTE in VideoEditor folder: ", req.body)
+        setTitle("");
+        setBody("");
     };
+
     return (
         <div>
             <TextField
