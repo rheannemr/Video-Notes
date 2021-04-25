@@ -51,7 +51,7 @@ function NewNote({ triggerReUpload, videoId }) {
             <Button onClick={handleSave} variant="contained" color="primary">
                 Save Note
             </Button>
-            <NotesTimeline videoId="KQ0gFidlro8" />
+            <NotesTimeline videoId={videoId} />
         </div>
     );
 }

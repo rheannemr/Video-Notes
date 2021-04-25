@@ -19,15 +19,6 @@ function VideoNotes() {
         <Container style={{padding: "5px", margin: "10vh"}}>
         <CenteredGrid  videoId={videoId} triggerReUpload={triggerReUpload}/> 
         </Container>
-        <Link to={{
-            pathname: "/savednotes",
-            notes: "",
-                      
-            }}>
-          <Button variant="contained" color="primary">
-              Save
-          </Button>
-        </Link>
         </div>
     );
 }

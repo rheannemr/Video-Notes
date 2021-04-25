@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
   
   function CenteredGrid(props) {
     const classes = useStyles();
-  
+
     return (
       
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Paper className={classes.paper}>{<VideoPlayer videoId={props.videoId}/>}</Paper>
+            <Paper className={classes.paper}>{<VideoPlayer videoId={props.videoId} width="650px" height="400px"/>}</Paper>
           </Grid>
           <Grid item xs={6}>
             <Paper className={classes.paper}>{<NewNote triggerReUpload={props.triggerReUpload} videoId={props.videoId} />}</Paper>

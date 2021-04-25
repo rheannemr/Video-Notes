@@ -23,7 +23,7 @@ function NotesTimeline(props) {
     const [reUpload, triggerReUpload] = useState("");
     useEffect(() => {
         console.log(props.videoId)
-        fetch(`/api/notes/?videoid=KQ0gFidlro8`)
+        fetch(`/api/notes/?videoid=${props.videoId}`)
             .then(res => res.json())
             .then(res => console.log("notes are: ", setNotes(res)));
     }, [reUpload]);

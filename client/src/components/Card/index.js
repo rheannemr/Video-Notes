@@ -3,7 +3,6 @@ import { makeStyles, Card, CardHeader, CardMedia, CardContent, CardActions, Coll
 import clsx from "clsx";
 import { red } from "@material-ui/core/colors";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
@@ -11,11 +10,7 @@ import VideoPlayer from "../VideoPlayer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
+    maxWidth: 300,
   },
   expand: {
     transform: "rotate(0deg)",
@@ -34,14 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 function MySavedVideoNotes(props) {
 
-  // const [notes, setNotes] = useState([]);
-  // const [reUpload, triggerReUpload] = useState("");
-  // useEffect(() => {
-  //   fetch("/api/notes")
-  //     .then(res => res.json())
-  //     .then(res => console.log("notes are: ", setNotes(res)));
-  // }, [reUpload]);
-  // console.log(props.videoId);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -66,7 +53,7 @@ function MySavedVideoNotes(props) {
           title="Video Name"
           subheader="This is a subheader"
         />
-        <VideoPlayer videoId={props.notesForVideo[0].videoId} className={classes.media}/>
+        <VideoPlayer videoId={props.notesForVideo[0].videoId} className={classes.media} width="100" height="60"/>
         <CardMedia
           title="Saved Video"
         />
