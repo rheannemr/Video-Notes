@@ -1,6 +1,7 @@
 const Router = require("express").Router();
 const Note = require("../models/notes");
 
+
 Router.get("/", async (req, res) => {
     try {
         console.log(req.query.videoId)
@@ -27,5 +28,11 @@ Router.post("/", async (req, res) => {
         res.send("oh no!")
     }
 });
+
+Router.delete("/api/notes/:videoId", function (req, res) {
+    const notes = JSON.parse(data);
+    notes.splice(req.params.videoId, 1);
+    res.json(notes);
+})
 
 module.exports = Router;

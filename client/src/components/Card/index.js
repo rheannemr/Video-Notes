@@ -28,14 +28,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MySavedVideoNotes(props) {
-
+  const [reUpload, triggerReUpload] = useState("");
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  
+  const deleteNote = ({ videoId }) =>
+  fetch(`/api/notes/${videoId}`, {
+    method: 'DELETE',
+    headers: {
+      Accept: "application/json",
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(data => triggerReUpload(data))
+  .catch(err => alert(err));
+
   console.log(props.notesForVideo)
+
   return (
     <div>
       <Card className={classes.root} style={{ marginTop: "10vh" }}>
@@ -46,7 +59,7 @@ function MySavedVideoNotes(props) {
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" onClick={deleteNote}>
               <DeleteSweepIcon />
             </IconButton>
           }
