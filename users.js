@@ -1,7 +1,7 @@
 function login(email, password, callback) {
     const bcrypt = require('bcrypt');
     const MongoClient = require('mongodb@3.1.4').MongoClient;
-    const client = new MongoClient('mongodb+srv://rhowe14:rhowe14@cluster0.ax7zo.mongodb.net/test');
+    const client = new MongoClient('mongodb://localhost/video-notes');
   
     client.connect(function (err) {
       if (err) return callback(err);
