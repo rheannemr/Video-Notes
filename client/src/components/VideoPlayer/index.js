@@ -15,7 +15,7 @@ function VideoPlayer({ videoId, width, height }) {
 					style={{ width: width, height: height, alignItems: 'flex-start' }}
 				/>
 			</div>
-			<h1>{user.name}</h1>
+			{/* <h1>{user.name}</h1> */}
 			{/* <div className="ui segment">
             <h4 className="ui header">{video.snippet.title}</h4>
             <p>{video.snippet.description}</p>
