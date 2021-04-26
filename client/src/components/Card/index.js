@@ -35,8 +35,23 @@ function MySavedVideoNotes(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  
-  const deleteNote = () =>
+
+  const handleDelete = () => {
+    console.log( props.notesForVideo[0].videoId)
+    console.log(props)
+    fetch("/api/notes/delete", {
+        method: "POST",
+        body: JSON.stringify({videoId: props.notesForVideo[0].videoId}),
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    })
+        .then(data => triggerReUpload(data))
+        .catch(err => alert(err));
+  };
+
+  const deleteNote = () => {
   fetch(`/api/notes/${props.notesForVideo[0].videoId}`, {
     method: 'DELETE',
     headers: {
@@ -48,6 +63,7 @@ function MySavedVideoNotes(props) {
   .catch(err => alert(err));
 
   console.log(props.notesForVideo)
+  };
 
   return (
     <div>
@@ -60,7 +76,7 @@ function MySavedVideoNotes(props) {
           }
           action={
             <IconButton aria-label="settings" >
-              <DeleteSweepIcon onClick={() => deleteNote(props.notesForVideo[0].videoId)}/>
+              <DeleteSweepIcon onClick={() => handleDelete(props.notesForVideo[0].id)}/>
             </IconButton>
           }
           title="Video Name"
