@@ -3,6 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const notesApiRoute = require("./routes/notes");
+const {join} = require("path")
 
 const cors = require("cors");
 // const session = require("express-session");
@@ -21,6 +22,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Send every other request to the React app
+
+// Serve static assets from the /public folder
+app.use(express.static(join(__dirname, "public")));
+
+// Endpoint to serve the configuration file
+app.get("/auth_config.json", (req, res) => {
+  res.sendFile(join(__dirname, "auth_config.json"));
+});
 
 // Mongo Connection
 
