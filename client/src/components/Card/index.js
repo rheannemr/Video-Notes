@@ -36,8 +36,8 @@ function MySavedVideoNotes(props) {
     setExpanded(!expanded);
   };
   
-  const deleteNote = (videoId) =>
-  fetch(`/api/notes/${videoId}`, {
+  const deleteNote = () =>
+  fetch(`/api/notes/${props.notesForVideo[0].videoId}`, {
     method: 'DELETE',
     headers: {
       Accept: "application/json",
@@ -59,8 +59,8 @@ function MySavedVideoNotes(props) {
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings" onClick={() => deleteNote(props.videoId)}>
-              <DeleteSweepIcon />
+            <IconButton aria-label="settings" >
+              <DeleteSweepIcon onClick={() => deleteNote(props.notesForVideo[0].videoId)}/>
             </IconButton>
           }
           title="Video Name"
