@@ -29,10 +29,17 @@ Router.post("/", async (req, res) => {
     }
 });
 
-Router.delete("/api/notes/:videoId", function (req, res) {
-    const notes = JSON.parse(data);
-    notes.splice(req.params.videoId, 1);
-    res.json(notes);
+Router.delete("/api/notes/:id", async (req, res) => {
+    try {
+        console.log(req.query.videoId)
+        const notes = await Note.splice(req.params.id, 1)
+        res.status(201)
+        res.json(notes)
+    } catch (err) {
+        console.log("Error in the notes get route", err)
+        res.status(501)
+        res.send("oh no!")
+    }
 })
 
 module.exports = Router;
