@@ -8,8 +8,8 @@ function NewNote({ triggerReUpload, videoId }) {
 	const [ body, setBody ] = useState('');
 	const { user } = useAuth0();
 	const handleSave = () => {
-		console.log(user.name);
-		const name = user.name;
+		// console.log(user.name);
+		// const name = user.name;
 		fetch('/api/notes', {
 			method: 'POST',
 			body: JSON.stringify({ title, body, videoId, name }),
