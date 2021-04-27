@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { makeStyles } from '@material-ui/core/styles'
 import SearchBar from "../../components/SearchBar";
 import VideoList from "../../components/VideoList";
 import VideoDetails from "../../components/VideoDetails";
 import API from "../../utils/API"
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        backgroundColor:"#d29679",
+        backgroundSize:'100%'
+    }
+    
+}));
+
 function SearchPage() {
+    const classes = useStyles();
     const [videoState, setVideo] = useState([]);
     const [selectedState, setSelected] = useState("");
 
@@ -22,9 +32,9 @@ function SearchPage() {
     }
 
     return (
-        <div>
+        <div className={classes.root}>
             <SearchBar
-                handleFormSubmit={handleSubmit} />
+                handleFormSubmit={handleSubmit} id="searchbar"/>
             <div>
                 <VideoDetails video={selectedState} />
             </div>

@@ -17,7 +17,7 @@ function SearchBar(props) {
     }
     return (
         <div>
-            <form class="searchbar" style={{ marginTop: "10vh" }} onSubmit={handleSubmit}>
+            <form id="searchbar" style={{ marginTop: "10vh" }} onSubmit={handleSubmit}>
                 <div>
                     <input onChange={handleInputChange} name="video-search" type="text" value={termState} />
                     <IconButton type="submit" onClick={handleSubmit}>

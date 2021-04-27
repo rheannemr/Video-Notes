@@ -5,7 +5,6 @@ import VideoNotes from "./pages/VideoNotes";
 import Landing from "./pages/Landing";
 import SavedNotes from "./pages/SavedNotes";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import createAuth0Client from '@auth0/auth0-spa-js';
 
 function App() {
   useEffect(() => {

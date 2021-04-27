@@ -1,21 +1,38 @@
 import React from "react";
-import { Tabs, Tab, AppBar } from "@material-ui/core";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Tabs, Tab, AppBar, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
-    background: 'none'
+    background: '#d29679'
+  },
+  toolbarButtons: {
+    marginLeft: "auto",
+    marginTop: "4.5px",
+    marginRight: "43px"
   }
 }));
 
 function NavBar() {
   const classes = useStyles();
+  const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
+  const { logout } = useAuth0();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const login = () => {
+    loginWithRedirect();
+    while (isLoading);
+    console.log('test test test');
+    if (isAuthenticated) {
+      console.log(user.name);
+    }
+  }
 
   return (
     <div>
@@ -36,6 +53,11 @@ function NavBar() {
             component={Link}
             to={"/savednotes"}
           />
+          <span className={classes.toolbarButtons}>
+            <Button color="inherit" onClick={() => logout({ returnTo: window.location.origin })}>
+              Log Out
+			    </Button>
+          </span>
         </Tabs>
       </AppBar>
     </div>

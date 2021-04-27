@@ -12,10 +12,9 @@ import {
 	Typography
 } from '@material-ui/core';
 import clsx from 'clsx';
-import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import VideoPlayer from '../VideoPlayer';
 
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 		transform: 'rotate(180deg)'
 	},
 	avatar: {
-		backgroundColor: red[500]
+		backgroundColor: '#aa5228'
 	},
 	cardDisplay: {
 		display: 'flex',
@@ -87,7 +86,7 @@ function MySavedVideoNotes(props) {
 				<CardHeader
 					avatar={
 						<Avatar className={classes.avatar}>
-							<FavoriteBorderIcon />
+							<BookmarkBorderIcon />
 						</Avatar>
 					}
 					action={
