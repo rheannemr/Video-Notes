@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Button, Container } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import CenteredGrid from "../../components/Grid";
 
 function VideoNotes() {

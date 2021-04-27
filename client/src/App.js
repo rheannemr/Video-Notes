@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import NavBar from "./components/NavBar";
 import SearchPage from "./pages/SearchPage";
 import VideoNotes from "./pages/VideoNotes";
-import Signup from "./pages/Signup";
+import Landing from "./pages/Landing";
 import SavedNotes from "./pages/SavedNotes";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import createAuth0Client from '@auth0/auth0-spa-js';
@@ -16,8 +16,8 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Signup} />
-        <Route path="/signup" component={Signup} />
+        <Route exact path="/" component={Landing} />
+        <Route path="/landing" component={Landing} />
         <Route path="/search" component={SearchPage} />
         <Route path="/videonotes/*" component={VideoNotes} />
         <Route path="/savednotes" component={SavedNotes} />
