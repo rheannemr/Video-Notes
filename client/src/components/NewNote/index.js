@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { TextField, Button, Popover, Typography } from '@material-ui/core';
 import NotesTimeline from '../NotesTimeline';
 import { useAuth0 } from '@auth0/auth0-react';
 
+const useStyles = makeStyles((theme) => ({
+	typography: {
+	  padding: theme.spacing(2),
+	},
+  }));
+
 function NewNote({ triggerReUpload, videoId }) {
+	const classes = useStyles();
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
+	const [anchorEl, setAnchorEl] = useState(null);
+
 	const { user } = useAuth0();
-	const handleSave = () => {
+	const handleSave = (event) => {
+		setAnchorEl(event.currentTarget);
 		console.log(user.name);
 		const name = user.name;
 		fetch('/api/notes', {
@@ -24,6 +35,42 @@ function NewNote({ triggerReUpload, videoId }) {
 		setTitle('');
 		setBody('');
 	};
+
+	function SimplePopover() {
+		const classes = useStyles();
+		const handleClose = () => {
+		  setAnchorEl(null);
+		};
+	  
+		const open = Boolean(anchorEl);
+		const id = open ? 'simple-popover' : undefined;
+	  
+		return (
+		  <div>
+			<Button aria-describedby={id} variant="contained" color="primary" onClick={handleSave}>
+			  Open Popover
+			</Button>
+			<Popover
+			  id={id}
+			  open={open}
+			  anchorEl={anchorEl}
+			  onClose={handleClose}
+			  anchorReference="anchorPosition"
+			  anchorPosition={{ top: 300, left: 200 }}
+			  anchorOrigin={{
+				vertical: 'center',
+				horizontal: 'right',
+			  }}
+			  transformOrigin={{
+				vertical: 'bottom',
+				horizontal: 'left',
+			  }}
+			>
+			  <Typography className={classes.typography}>The content of the Popover.</Typography>
+			</Popover>
+		  </div>
+		);
+	  }
 
 	return (
 		<div>
@@ -55,12 +102,13 @@ function NewNote({ triggerReUpload, videoId }) {
 				}}
 				variant="outlined"
 			/>
-			<Button onClick={handleSave} variant="contained" color="primary">
-				Save Note
-			</Button>
+			<div>
+			<SimplePopover />
+			</div>
 			<NotesTimeline videoId={videoId} />
 		</div>
 	);
 }
 
 export default NewNote;
+
