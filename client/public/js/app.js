@@ -1,17 +1,19 @@
-let auth0 = null
+let auth0 = null;
 
-const fetchAuthConfig = () => fetch("/auth_config.json");
+const fetchAuthConfig = () => fetch('/auth_config.json');
 
 const configureClient = async () => {
-    const response = await fetchAuthConfig();
-    const config = await response.json();
-  
-    auth0 = await createAuth0Client({
-      domain: config.domain,
-      client_id: config.clientId
-    });
-  };
+	const response = await fetchAuthConfig();
+	const config = await response.json();
 
-  window.onload = async () => {
-    await configureClient();
-  }
+	auth0 = await createAuth0Client({
+		domain: config.domain,
+		client_id: config.clientId,
+		cacheLocation: config.cacheLocation,
+		useRefreshTokens: config.useRefreshTokens
+	});
+};
+
+window.onload = async () => {
+	await configureClient();
+};

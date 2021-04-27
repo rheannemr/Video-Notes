@@ -4,6 +4,7 @@ import { Typography, Paper, IconButton } from "@material-ui/core";
 import { Timeline, TimelineItem, TimelineSeparator, TimelineContent, TimelineOppositeContent, TimelineConnector, TimelineDot } from "@material-ui/lab";
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import { pink } from "@material-ui/core/colors";
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -23,11 +24,21 @@ function NotesTimeline(props) {
     const classes = useStyles();
     const [notes, setNotes] = useState([]);
     const [reUpload, triggerReUpload] = useState("");
+    const { user } = useAuth0();
+    
     useEffect(() => {
-        console.log(props.videoId)
-        fetch(`/api/notes/?videoid=${props.videoId}`)
-            .then(res => res.json())
-            .then(res => console.log("notes are: ", setNotes(res)));
+        console.log(props.videoId);
+        const data = { name: user.name };
+        fetch('/api/notes/user', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((res) => res.json())
+            .then(res => console.log("notes are: ", setNotes(res)))
+            .catch((err) => alert(err));
     }, [reUpload]);
     return (
         <>
