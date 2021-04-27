@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
 	makeStyles,
 	Card,
@@ -21,7 +21,7 @@ import VideoPlayer from '../VideoPlayer';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: 300
+		maxWidth: 300,
 	},
 	expand: {
 		transform: 'rotate(0deg)',
@@ -35,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	avatar: {
 		backgroundColor: red[500]
+	},
+	cardDisplay: {
+		display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
 	}
 }));
 
@@ -77,7 +82,7 @@ function MySavedVideoNotes(props) {
 	};
 
 	return (
-		<div>
+		<div className={classes.cardDisplay}>
 			<Card className={classes.root} style={{ marginTop: '10vh' }}>
 				<CardHeader
 					avatar={

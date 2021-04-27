@@ -1,8 +1,16 @@
 import React from "react";
 import { Tabs, Tab, AppBar } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 import {  Link } from "react-router-dom";
 
+const useStyles = makeStyles((theme) => ({
+  navbar: {
+    background: 'none'
+  }
+}));
+
 function NavBar() {
+  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -10,13 +18,13 @@ function NavBar() {
   };
 
   return (
-    <div className="appBar">
-      <AppBar>
-        <Tabs variant="fullWidth" value={value} onChange={handleChange}>
+    <div>
+      <AppBar className={classes.navbar} elevation={0}>
+        <Tabs value={value} onChange={handleChange}>
           <Tab
             label="Sign In"
             component={Link}
-            to={"/signup"}
+            to={"/landing"}
           />
           <Tab
             label="Search Video"
