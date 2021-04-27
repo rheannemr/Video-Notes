@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh'
     },
     textColor: {
-		color:'orange'
+		color:'#aa5228'
 	},
     container: {
         textAlign: 'center'
