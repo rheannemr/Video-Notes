@@ -7,9 +7,9 @@ import StartBtn from '../../components/StartBtn';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		minHeight: '100vh',
-		backgroundImage:`url(${process.env.PUBLIC_URL + '/assets/abstract.jpeg'})`,
+		backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/abstract.jpeg'})`,
 		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'cover',
+		backgroundSize: 'cover'
 	}
 }));
 
