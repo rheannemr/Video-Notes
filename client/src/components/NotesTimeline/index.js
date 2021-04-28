@@ -42,9 +42,9 @@ function NotesTimeline(props) {
     }, [reUpload]);
     return (
         <>
-            <Timeline align="alternate" style={{ marginTop: "20vh" }}>
-                {notes.filter(note => note.videoId == props.videoId).map(note => (
-                    <TimelineItem>
+            <Timeline align="alternate" style={{ marginTop: "20vh" }} >
+                {notes.filter(note => note.videoId == props.videoId).map((note, i) => (
+                    <TimelineItem key={i}>
                         <TimelineOppositeContent>
                             <Typography variant="body2" color="textSecondary">
                                 Video Time
@@ -58,8 +58,8 @@ function NotesTimeline(props) {
                             </TimelineDot>
                             <TimelineConnector />
                         </TimelineSeparator>
-                        <TimelineContent>
-                            <Paper elevation={3} className={classes.paper}>
+                        <TimelineContent >
+                            <Paper  elevation={3} className={classes.paper}>
                                 <Typography variant="h6" component="h1">
                                     {note.title}
                                 </Typography>
