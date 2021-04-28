@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 function StartBtn() {
     const classes = useStyles();
 	const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
-    const opened = LandingAnimation('header');
+    const checked = LandingAnimation('header');
 
 	const login = () => {
 		loginWithRedirect();
@@ -35,9 +35,9 @@ function StartBtn() {
 
     return (
         <div className={classes.root} id="start-btn">
-            <Collapse in={opened} { ... (opened ? { timeout: 1000 } : {})}>
+            <Collapse in={checked} { ... (checked ? { timeout: 1000 } : {})}>
             <div>
-            <Button className={classes.startBtn} onClick={() => login()} opened={opened}>
+            <Button className={classes.startBtn} onClick={() => login()} checked={checked}>
 				Let's Get Started
 			</Button>
             </div>
