@@ -48,15 +48,16 @@ function NewNote({ triggerReUpload, videoId }) {
 		return (
 		  <div>
 			<Button aria-describedby={id} variant="contained" color="primary" onClick={handleSave}>
-			  Open Popover
+			  Save Note
 			</Button>
 			<Popover
 			  id={id}
 			  open={open}
 			  anchorEl={anchorEl}
 			  onClose={handleClose}
+			  variant="popover"
 			  anchorReference="anchorPosition"
-			  anchorPosition={{ top: 300, left: 200 }}
+			  anchorPosition={{ top: 300, left: 1130 }}
 			  anchorOrigin={{
 				vertical: 'center',
 				horizontal: 'right',
@@ -66,7 +67,7 @@ function NewNote({ triggerReUpload, videoId }) {
 				horizontal: 'left',
 			  }}
 			>
-			  <Typography className={classes.typography}>The content of the Popover.</Typography>
+			  <Typography className={classes.typography}>Note is Saved!</Typography>
 			</Popover>
 		  </div>
 		);
@@ -103,7 +104,7 @@ function NewNote({ triggerReUpload, videoId }) {
 				variant="outlined"
 			/>
 			<div>
-			<SimplePopover />
+			<SimplePopover color="primary" />
 			</div>
 			<NotesTimeline videoId={videoId} />
 		</div>

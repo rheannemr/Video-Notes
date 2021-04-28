@@ -121,8 +121,8 @@ function MySavedVideoNotes(props) {
 				</CardActions>
 				<Collapse in={expanded} timeout="auto" unmountOnExit>
 					<div>
-						{props.notesForVideo.map((note) => (
-							<CardContent>
+						{props.notesForVideo.map((note, i) => (
+							<CardContent key={i}>
 								<Typography>{note.title}</Typography>
 								<Typography>{note.body}</Typography>
 							</CardContent>

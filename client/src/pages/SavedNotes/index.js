@@ -46,7 +46,7 @@ function SavedNotes(props) {
 		[ reUpload ]
 	);
 
-	return <div>{notes.map((notesForThatVideo) => <MySavedVideoNotes notesForVideo={notesForThatVideo} />)}</div>;
+	return <div>{notes.map((notesForThatVideo, i) => <MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} />)}</div>;
 }
 
 export default SavedNotes;
