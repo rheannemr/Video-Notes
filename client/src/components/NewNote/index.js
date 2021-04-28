@@ -14,6 +14,7 @@ function NewNote({ triggerReUpload, videoId }) {
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
 	const [ anchorEl, setAnchorEl ] = useState(null);
+	const [ count, setCount ] = useState(0);
 
 	const handleSave = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -31,6 +32,7 @@ function NewNote({ triggerReUpload, videoId }) {
 		// console.log("data from inside NEWNOTE in VideoEditor folder: ", req.body)
 		setTitle('');
 		setBody('');
+		setCount(count + 1);
 	};
 
 	function SimplePopover() {
@@ -103,7 +105,7 @@ function NewNote({ triggerReUpload, videoId }) {
 			<div>
 				<SimplePopover color="primary" />
 			</div>
-			<NotesTimeline videoId={videoId} />
+			<NotesTimeline videoId={videoId} refreshCount={count} />
 		</div>
 	);
 }

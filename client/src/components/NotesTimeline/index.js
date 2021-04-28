@@ -23,8 +23,7 @@ function NotesTimeline(props) {
 
     const classes = useStyles();
     const [notes, setNotes] = useState([]);
-    const [reUpload, triggerReUpload] = useState("");
-       
+           
     useEffect(() => {
         console.log(props.videoId);
         const user = localStorage.getItem('auth0.user');
@@ -39,7 +38,8 @@ function NotesTimeline(props) {
             .then((res) => res.json())
             .then(res => console.log("notes are: ", setNotes(res)))
             .catch((err) => alert(err));
-    }, [reUpload]);
+    });
+    
     return (
         <>
             <Timeline align="alternate" style={{ marginTop: "20vh" }} >
