@@ -18,7 +18,11 @@ function sort(notes) {
 
 function SavedNotes(props) {
 	const [ notes, setNotes ] = useState([]);
-	const [ reUpload, triggerReUpload ] = useState('');
+	const [ reUpload, triggerReUpload ] = useState(0);
+
+	const refresh = () => {
+		triggerReUpload(reUpload + 1);
+	};
 
 	useEffect(
 		() => {
@@ -46,7 +50,9 @@ function SavedNotes(props) {
 
 	return (
 		<div>
-			{notes.map((notesForThatVideo, i) => <MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} />)}
+			{notes.map((notesForThatVideo, i) => (
+				<MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} refresh={refresh} />
+			))}
 		</div>
 	);
 }

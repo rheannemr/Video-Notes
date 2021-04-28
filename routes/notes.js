@@ -5,7 +5,7 @@ Router.post('/delete', async (req, res) => {
 	console.log('request work hopefully');
 	try {
 		console.log('We got a note w/ ', req.body);
-		const note = await Note.deleteMany({ videoId: req.body.videoId });
+		const note = await Note.deleteMany({ videoId: req.body.videoId, name: req.body.name });
 		res.status(201);
 		res.send(note._id);
 	} catch (err) {
