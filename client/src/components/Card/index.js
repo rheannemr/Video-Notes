@@ -20,7 +20,7 @@ import VideoPlayer from '../VideoPlayer';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: 300,
+		maxWidth: 300
 	},
 	expand: {
 		transform: 'rotate(0deg)',
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cardDisplay: {
 		display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 }));
 
@@ -54,9 +54,10 @@ function MySavedVideoNotes(props) {
 	const handleDelete = () => {
 		console.log(props.notesForVideo[0].videoId);
 		console.log(props);
+		const user = localStorage.getItem('auth0.user');
 		fetch('/api/notes/delete', {
 			method: 'POST',
-			body: JSON.stringify({ videoId: props.notesForVideo[0].videoId }),
+			body: JSON.stringify({ videoId: props.notesForVideo[0].videoId, name: user }),
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json'
@@ -64,20 +65,7 @@ function MySavedVideoNotes(props) {
 		})
 			.then((data) => triggerReUpload(data))
 			.catch((err) => alert(err));
-	};
-
-	const deleteNote = () => {
-		fetch(`/api/notes/${props.notesForVideo[0].videoId}`, {
-			method: 'DELETE',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json'
-			}
-		})
-			.then((data) => triggerReUpload(data))
-			.catch((err) => alert(err));
-
-		console.log(props.notesForVideo);
+		props.refresh();
 	};
 
 	return (
