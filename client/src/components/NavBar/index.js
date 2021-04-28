@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Tabs, Tab, AppBar, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar() {
 	const classes = useStyles();
-	const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
 	const { logout } = useAuth0();
 	const [ value, setValue ] = React.useState(0);
 
@@ -32,12 +31,6 @@ function NavBar() {
 
 		localStorage.removeItem('auth0.user');
 	};
-
-	useEffect(() => {
-		if (isAuthenticated && !localStorage.getItem('auth0.user')) {
-			localStorage.setItem('auth0.user', user.name);
-		}
-	});
 
 	return (
 		<div>

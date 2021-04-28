@@ -2,25 +2,22 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Popover, Typography } from '@material-ui/core';
 import NotesTimeline from '../NotesTimeline';
-import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
 	typography: {
-	  padding: theme.spacing(2),
-	},
-  }));
+		padding: theme.spacing(2)
+	}
+}));
 
 function NewNote({ triggerReUpload, videoId }) {
 	const classes = useStyles();
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
-	const [anchorEl, setAnchorEl] = useState(null);
+	const [ anchorEl, setAnchorEl ] = useState(null);
 
-	const { user } = useAuth0();
 	const handleSave = (event) => {
 		setAnchorEl(event.currentTarget);
-		console.log(user.name);
-		const name = user.name;
+		const name = localStorage.getItem('auth0.user');
 		fetch('/api/notes', {
 			method: 'POST',
 			body: JSON.stringify({ title, body, videoId, name }),
@@ -39,39 +36,39 @@ function NewNote({ triggerReUpload, videoId }) {
 	function SimplePopover() {
 		const classes = useStyles();
 		const handleClose = () => {
-		  setAnchorEl(null);
+			setAnchorEl(null);
 		};
-	  
+
 		const open = Boolean(anchorEl);
 		const id = open ? 'simple-popover' : undefined;
-	  
+
 		return (
-		  <div>
-			<Button aria-describedby={id} variant="contained" color="primary" onClick={handleSave}>
-			  Save Note
-			</Button>
-			<Popover
-			  id={id}
-			  open={open}
-			  anchorEl={anchorEl}
-			  onClose={handleClose}
-			  variant="popover"
-			  anchorReference="anchorPosition"
-			  anchorPosition={{ top: 300, left: 1130 }}
-			  anchorOrigin={{
-				vertical: 'center',
-				horizontal: 'right',
-			  }}
-			  transformOrigin={{
-				vertical: 'bottom',
-				horizontal: 'left',
-			  }}
-			>
-			  <Typography className={classes.typography}>Note is Saved!</Typography>
-			</Popover>
-		  </div>
+			<div>
+				<Button aria-describedby={id} variant="contained" color="primary" onClick={handleSave}>
+					Save Note
+				</Button>
+				<Popover
+					id={id}
+					open={open}
+					anchorEl={anchorEl}
+					onClose={handleClose}
+					variant="popover"
+					anchorReference="anchorPosition"
+					anchorPosition={{ top: 300, left: 1130 }}
+					anchorOrigin={{
+						vertical: 'center',
+						horizontal: 'right'
+					}}
+					transformOrigin={{
+						vertical: 'bottom',
+						horizontal: 'left'
+					}}
+				>
+					<Typography className={classes.typography}>Note is Saved!</Typography>
+				</Popover>
+			</div>
 		);
-	  }
+	}
 
 	return (
 		<div>
@@ -104,7 +101,7 @@ function NewNote({ triggerReUpload, videoId }) {
 				variant="outlined"
 			/>
 			<div>
-			<SimplePopover color="primary" />
+				<SimplePopover color="primary" />
 			</div>
 			<NotesTimeline videoId={videoId} />
 		</div>
@@ -112,4 +109,3 @@ function NewNote({ triggerReUpload, videoId }) {
 }
 
 export default NewNote;
-

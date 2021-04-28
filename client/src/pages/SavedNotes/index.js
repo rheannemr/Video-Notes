@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import MySavedVideoNotes from '../../components/Card';
-import { useAuth0 } from '@auth0/auth0-react';
 
 function sort(notes) {
 	// get all videoIds (get all colors, get all types of clothes)
@@ -20,12 +19,11 @@ function sort(notes) {
 function SavedNotes(props) {
 	const [ notes, setNotes ] = useState([]);
 	const [ reUpload, triggerReUpload ] = useState('');
-	const { user } = useAuth0();
 
 	useEffect(
 		() => {
-			console.log(user.name);
-			const data = { name: user.name };
+			const user = localStorage.getItem('auth0.user');
+			const data = { name: user };
 			fetch('/api/notes/user', {
 				method: 'POST',
 				body: JSON.stringify(data),
@@ -46,7 +44,11 @@ function SavedNotes(props) {
 		[ reUpload ]
 	);
 
-	return <div>{notes.map((notesForThatVideo, i) => <MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} />)}</div>;
+	return (
+		<div>
+			{notes.map((notesForThatVideo, i) => <MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} />)}
+		</div>
+	);
 }
 
 export default SavedNotes;
