@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         height: '100vh'
     },
-    textColor: {
+    textcolor: {
 		color:'#aa5228'
 	},
     container: {
@@ -30,19 +30,19 @@ const useStyles = makeStyles((theme) => ({
 
 function Header() {
     const classes = useStyles();
-    const [opened, setOpened] = useState(false);
+    const [checked, setchecked] = useState(false);
 
     useEffect(() => {
-        setOpened(true);
+        setchecked(true);
     })
 
     return (
         <div className={classes.root} id="header">
-            <Collapse in={opened} { ... (opened ? { timeout: 1000 } : {})}
+            <Collapse in={checked} { ... (checked ? { timeout: 1000 } : {})}
             collapsedHeight={50}>
             <div className={classes.container}>
 				<h1 className={classes.title}>
-                    Welcome to<br/><span className={classes.textColor}>U Notes</span>
+                    Welcome to<br/><span className={classes.textcolor}>U Notes</span>
                 </h1>
                 <Scroll to="start-btn" smooth={true}>
                 <IconButton>

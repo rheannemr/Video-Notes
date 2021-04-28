@@ -53,11 +53,9 @@ function NavBar() {
             component={Link}
             to={"/savednotes"}
           />
-          <span className={classes.toolbarButtons}>
-            <Button color="inherit" onClick={() => logout({ returnTo: window.location.origin })}>
-              Log Out
+          <Button color="inherit" onClick={() => logout({ returnTo: window.location.origin })} className={classes.toolbarButtons}>
+            Log Out
 			    </Button>
-          </span>
         </Tabs>
       </AppBar>
     </div>
