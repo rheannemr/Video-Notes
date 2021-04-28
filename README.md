@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# U Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+U Notes is a video note taking full-stack application created with React.js, MongoDB, and Auth0. The user can search videos, take notes as they are watching the video, and save all of that together for future reference. Using the Youtube Data API, users have access to all videos on the platform. When creating notes, the user is able to log the time of the video so they can easily find the exact elapsed time that the note was created. The user must log in or create an account to begin using U Notes; Once the user is logged in, they are able to save data to their personal account and retrieve it at any given time.
 
-## Available Scripts
+## Table of Contents
+- [General Info](#general-info)
+- [Link to deployed page](#general-info)
+- [Landing Page](#landing-page)
+- [Video Search Page](#video-search-page)
+- [Video List Page](#video-list-page)
+- [Video Notes Page](#video-notes-page)
+- [My Saved Video Notes Page](#my-saved-video-notes-page)
+- [Technologies](#technologies)
+- [Summary](#summary)
+- [Authors](#authors)
 
-In the project directory, you can run:
+## General Info
 
-### `npm start`
+U Notes meets the following criteria:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  GIVEN I am using a video note taking app <br />
+  WHEN I click the "Let's Get Started" button <br />
+  THEN I am redirected to the login/create user page <br />
+  WHEN I login/create an account <br />
+  THEN I am redirected to the video search page <br />
+  WHEN I search a video <br />
+  THEN I am presented with a list of 15 related videos <br />
+  WHEN I click on the video I want to watch/take notes on <br />
+  THEN I am redirected to the "video notes" page <br />
+  WHEN I create a note with the time stamp <br />
+  THEN the note saves to the timeline <br />
+  WHEN I click on the "My Video Notes" tab <br />
+  THEN all my saved notes are shown on that page with the corresponding video <br />
+  WHEN I click on the trash can on the card <br />
+  THEN the card is deleted from my page and database <br />
+  WHEN I click on the addition screen on the card <br />
+  THEN I am redirected back to the "video notes" page of the chosen video w/ my saved notes <br />
+  WHEN I click "Log Out" on the navbar <br />
+  THEN my user is logged out and I am redirected back to the landing page <br />
+  
+## Link to Deployed Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Landing Page
+- Photo of Landing Page
+## Video Search Page
+- Photo of Video Search Page
+## Video List Page
+- Photo of Video List Page
+## Video Notes Page
+- Photo of Video Notes Page
+## My Saved Video Notes Page
+- Photo of My Saved Video Notes
 
-### `npm test`
+## Technologies
+This project is created with:
+- [React.js](https://reactjs.org/)
+- [Javascript](https://javascript.com/)
+- [HTML](https://html.com/)
+- [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
+- [Node.js](https://nodejs.org/en/)
+- [Auth0](https://auth0.com/)
+- [MongoDB](https://www.mongodb.com/2)
+- [Express](https://expressjs.com/)
+- [npm](https://www.npmjs.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frameworks used:
+- [Material-UI](https://material-ui.com/)
 
-### `npm run build`
+APIs used:
+- [Youtube Data API](https://developers.google.com/youtube/v3)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authors
+- [Melissa Stott](https://github.com/melissa-stott)
+- [Rheanne Reyes](https://github.com/rheannemr)
+- [Ines Radic](https://github.com/inesr19)
+- [Tina Armstead](https://github.com/tmarmstead)
+- [Rebecca Berger-Howe](https://github.com/rhowe20)
