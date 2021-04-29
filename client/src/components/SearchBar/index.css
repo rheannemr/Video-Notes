@@ -1,20 +1,16 @@
 #searchbar {
-    width: 100%;
     text-align:center;
 }
 
 #searchbar input {
-    height: 25px;
     width: 400px;
-    border-radius: 10px;
 }
 
 #searchbar button {
     border: none;
     border-radius: 10px;
-    background-color:rgb(179, 179, 179);
-    margin: 5px;
-    padding: 5px 25px;
+    margin: 4px;
+    padding: 5px 15px;
     cursor: pointer;
 }
 

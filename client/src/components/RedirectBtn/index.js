@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     return (
       <div className={classes.root}>
         <Link to={`/videonotes/${videoId}`}>
-        <Button variant="contained" color="primary" style={{ marginBottom: "15px"}}>
-          Link
+        <Button variant="contained" color="black" style={{ marginBottom: "15px"}}>
+          Select
         </Button>
         </Link>
       </div>

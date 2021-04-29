@@ -12,18 +12,18 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh'
     },
     textcolor: {
-		color:'#aa5228'
+		color: '#d45548'
 	},
     container: {
         textAlign: 'center'
     },
     title: {
-        color: 'white',
+        color: 'black',
         fontSize: '5rem',
         fontFamily:'Comfortaa'
     },
     expandMore: {
-        color: 'white',
+        color: 'black',
         fontSize: '4rem'
     }
 }));

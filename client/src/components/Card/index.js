@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 		transform: 'rotate(180deg)'
 	},
 	avatar: {
-		backgroundColor: '#aa5228'
+		backgroundColor: '#d45548'
 	},
 	cardDisplay: {
 		display: 'flex',
@@ -82,8 +82,6 @@ function MySavedVideoNotes(props) {
 							<DeleteSweepIcon onClick={() => handleDelete(props.notesForVideo[0].id)} />
 						</IconButton>
 					}
-					title="Video Name"
-					subheader="This is a subheader"
 				/>
 				<VideoPlayer
 					videoId={props.notesForVideo[0].videoId}
