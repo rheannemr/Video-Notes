@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
-import {
-	makeStyles,
-	Card,
-	CardHeader,
-	CardMedia,
-	CardContent,
-	CardActions,
-	Collapse,
-	Avatar,
-	IconButton,
-	Typography
-} from '@material-ui/core';
+import { Link } from "react-router-dom";
+import { makeStyles, Card,CardHeader, CardMedia, CardContent, CardActions, Collapse,Avatar, IconButton, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import VideoPlayer from '../VideoPlayer';
+import RedirectBtn from '../RedirectBtn';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -68,6 +59,10 @@ function MySavedVideoNotes(props) {
 		props.refresh();
 	};
 
+	const handleRedirect = () => {
+		<Link to={`/videonotes/${{videoId: props.notesForVideo[0].videoId}}`} />
+	}
+
 	return (
 		<div className={classes.cardDisplay}>
 			<Card className={classes.root} style={{ marginTop: '10vh' }}>
@@ -94,7 +89,9 @@ function MySavedVideoNotes(props) {
 				<CardMedia title="Saved Video" />
 				<CardActions disableSpacing>
 					<IconButton aria-label="Go to Video Notes page">
+					<Link to={`/videonotes/${props.videoId}`}>
 						<QueuePlayNextIcon />
+					</Link>
 					</IconButton>
 					<IconButton
 						className={clsx(classes.expand, {
