@@ -42,8 +42,6 @@ function MySavedVideoNotes(props) {
 	};
 
 	const handleDelete = () => {
-		console.log(props.notesForVideo[0].videoId);
-		console.log(props);
 		const user = localStorage.getItem('auth0.user');
 		fetch('/api/notes/delete', {
 			method: 'POST',
@@ -57,10 +55,6 @@ function MySavedVideoNotes(props) {
 			.catch((err) => alert(err));
 		props.refresh();
 	};
-
-	const handleRedirect = () => {
-		<Link to={`/videonotes/${props.videoId}`} />
-	}
 
 	return (
 		<div className={classes.cardDisplay}>
@@ -85,9 +79,9 @@ function MySavedVideoNotes(props) {
 				<CardMedia title="Saved Video" />
 				<CardActions disableSpacing>
 					<IconButton aria-label="Go to Video Notes page">
-					<Link to={`/videonotes/${props.videoId}`} onClick={() => handleRedirect}>
-						<QueuePlayNextIcon />
-					</Link>
+						<Link to={`/videonotes/${props.videoId}`}>
+							<QueuePlayNextIcon />
+						</Link>
 					</IconButton>
 					<IconButton
 						className={clsx(classes.expand, {

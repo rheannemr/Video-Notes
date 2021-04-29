@@ -13,7 +13,7 @@ function sort(notes) {
 	return display;
 }
 
-function SavedNotes(props) {
+function SavedNotes() {
 	const [notes, setNotes] = useState([]);
 	const [reUpload, triggerReUpload] = useState(0);
 

@@ -19,12 +19,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 function NotesTimeline(props) {
-
     const classes = useStyles();
     const [notes, setNotes] = useState([]);
 
     useEffect(() => {
-        console.log(props.videoId);
         const user = localStorage.getItem('auth0.user');
         const data = { name: user };
         fetch('/api/notes/user', {
@@ -35,7 +33,7 @@ function NotesTimeline(props) {
             }
         })
             .then((res) => res.json())
-            .then(res => console.log("notes are: ", setNotes(res)))
+            .then(res => setNotes(res))
             .catch((err) => alert(err));
     });
 

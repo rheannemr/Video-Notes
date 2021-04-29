@@ -4,7 +4,6 @@ import { IconButton, TextField } from "@material-ui/core";
 import "./index.css";
 
 function SearchBar(props) {
-
     const [termState, setTerm] = useState("");
 
     const handleInputChange = (e) => {
