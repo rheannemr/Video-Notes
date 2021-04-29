@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
+import SearchIcon from '@material-ui/icons/Search';
 import "./index.css";
-import { IconButton } from "@material-ui/core";
+import { IconButton, TextField } from "@material-ui/core";
 
 function SearchBar(props) {
 
@@ -19,10 +19,22 @@ function SearchBar(props) {
         <div>
             <form id="searchbar" style={{ marginTop: "10vh" }} onSubmit={handleSubmit}>
                 <div>
-                    <input onChange={handleInputChange} name="video-search" type="text" value={termState} />
+                    <TextField
+                        onChange={handleInputChange}
+                        name="video-search"
+                        type="text"
+                        value={termState}
+                        style={{ margin: 8 }}
+                        placeholder="Search"
+                        margin="dense"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        variant="outlined">
+                    </TextField>
                     <IconButton type="submit" onClick={handleSubmit}>
-                        <YoutubeSearchedForIcon />
-                        </IconButton>
+                        <SearchIcon fontSize="large" />
+                    </IconButton>
                 </div>
             </form>
         </div>

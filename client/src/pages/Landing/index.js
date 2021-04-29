@@ -8,7 +8,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		minHeight: '100vh',
-		backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/abstract.jpeg'})`,
+		backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/pastel.jpeg'})`,
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover'
 	}

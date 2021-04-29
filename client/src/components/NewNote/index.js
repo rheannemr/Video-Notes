@@ -29,7 +29,6 @@ function NewNote({ triggerReUpload, videoId }) {
 		})
 			.then((data) => triggerReUpload(data))
 			.catch((err) => alert(err));
-		// console.log("data from inside NEWNOTE in VideoEditor folder: ", req.body)
 		setTitle('');
 		setBody('');
 		setCount(count + 1);
@@ -46,7 +45,7 @@ function NewNote({ triggerReUpload, videoId }) {
 
 		return (
 			<div>
-				<Button aria-describedby={id} variant="contained" color="primary" onClick={handleSave}>
+				<Button aria-describedby={id} variant="contained" color="black" onClick={handleSave}>
 					Save Note
 				</Button>
 				<Popover
@@ -78,10 +77,9 @@ function NewNote({ triggerReUpload, videoId }) {
 				value={title}
 				onChange={(event) => setTitle(event.target.value)}
 				id="filled-full-width"
-				label="Title"
+				label="Elapsed Time"
 				style={{ margin: 8 }}
-				placeholder="Enter the note title here"
-				// fullWidth
+				placeholder="0:00"
 				margin="normal"
 				InputLabelProps={{
 					shrink: true
@@ -92,10 +90,9 @@ function NewNote({ triggerReUpload, videoId }) {
 				value={body}
 				onChange={(event) => setBody(event.target.value)}
 				id="filled-full-width"
-				label="Body"
+				label="Note"
 				style={{ margin: 8 }}
 				placeholder="Enter the note body here"
-				// fullWidth
 				margin="normal"
 				InputLabelProps={{
 					shrink: true

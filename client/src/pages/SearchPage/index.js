@@ -5,13 +5,7 @@ import VideoList from "../../components/VideoList";
 import VideoDetails from "../../components/VideoDetails";
 import API from "../../utils/API"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        backgroundColor:"#d29679",
-        backgroundSize:'100%'
-    }
-    
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 function SearchPage() {
     const classes = useStyles();
