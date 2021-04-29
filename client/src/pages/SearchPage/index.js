@@ -3,6 +3,7 @@ import SearchBar from "../../components/SearchBar";
 import VideoList from "../../components/VideoList";
 import VideoDetails from "../../components/VideoDetails";
 import API from "../../utils/API"
+import './index.css'
 
 function SearchPage() {
     const [videoState, setVideo] = useState([]);

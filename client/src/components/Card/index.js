@@ -70,12 +70,11 @@ function MySavedVideoNotes(props) {
 							<DeleteSweepIcon onClick={() => handleDelete(props.notesForVideo[0].id)} />
 						</IconButton>
 					}
+					title="SAVED VIDEO"
 				/>
 				<VideoPlayer
 					videoId={props.notesForVideo[0].videoId}
 					className={classes.media}
-					width="100"
-					height="60"
 				/>
 				<CardMedia title="Saved Video" />
 				<CardActions disableSpacing>

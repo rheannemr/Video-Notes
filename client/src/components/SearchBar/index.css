@@ -4,6 +4,7 @@
 
 #searchbar input {
     width: 400px;
+    background-color: white;
 }
 
 #searchbar button {

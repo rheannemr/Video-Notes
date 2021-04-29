@@ -92,7 +92,7 @@ function NewNote({ triggerReUpload, videoId }) {
 				id="filled-full-width"
 				label="Note"
 				style={{ margin: 8 }}
-				placeholder="Enter the note body here"
+				placeholder="Enter Note"
 				margin="normal"
 				InputLabelProps={{
 					shrink: true
