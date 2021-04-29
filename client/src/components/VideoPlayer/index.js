@@ -10,7 +10,7 @@ function VideoPlayer({ videoId }) {
 			<div className="ui embed"
 				style={{
 					position: "relative",
-					paddingBottom: "56.25%" /* 16:9 */,
+					paddingBottom: "56.25%",
 					paddingTop: 25,
 					height: 0
 				}}

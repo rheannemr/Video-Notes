@@ -36,11 +36,11 @@ function StartBtn() {
     return (
         <div className={classes.root} id="start-btn">
             <Collapse in={checked} { ... (checked ? { timeout: 1000 } : {})}>
-            <div>
-            <Button className={classes.startBtn} onClick={() => login()} checked={checked}>
-				Let's Get Started
-			</Button>
-            </div>
+                <div>
+                    <Button className={classes.startBtn} onClick={() => login()} checked={checked}>
+                        Let's Get Started
+                    </Button>
+                </div>
             </Collapse>
         </div>
     )
