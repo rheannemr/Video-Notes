@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchIcon from '@material-ui/icons/Search';
-import "./index.css";
 import { IconButton, TextField } from "@material-ui/core";
+import "./index.css";
 
 function SearchBar(props) {
 
@@ -15,6 +15,7 @@ function SearchBar(props) {
         e.preventDefault();
         props.handleFormSubmit(termState)
     }
+
     return (
         <div>
             <form id="searchbar" style={{ marginTop: "10vh" }} onSubmit={handleSubmit}>
@@ -39,6 +40,6 @@ function SearchBar(props) {
             </form>
         </div>
     )
-}
+};
 
 export default SearchBar;

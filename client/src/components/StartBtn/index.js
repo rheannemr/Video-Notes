@@ -27,7 +27,7 @@ function StartBtn() {
 	const login = () => {
 		loginWithRedirect();
 		while (isLoading);
-		console.log('test test test');
+		console.log('Testing...');
 		if (isAuthenticated) {
 			console.log(user.name);
 		}

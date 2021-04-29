@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
 
 function NewNote({ triggerReUpload, videoId }) {
 	const classes = useStyles();
-	const [ title, setTitle ] = useState('');
-	const [ body, setBody ] = useState('');
-	const [ anchorEl, setAnchorEl ] = useState(null);
-	const [ count, setCount ] = useState(0);
+	const [title, setTitle] = useState('');
+	const [body, setBody] = useState('');
+	const [anchorEl, setAnchorEl] = useState(null);
+	const [count, setCount] = useState(0);
 
 	const handleSave = (event) => {
 		setAnchorEl(event.currentTarget);

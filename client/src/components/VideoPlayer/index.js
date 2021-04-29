@@ -8,19 +8,19 @@ function VideoPlayer({ videoId }) {
 	return (
 		<div>
 			<div className="ui embed"
-			   style={{
-				position: "relative",
-				paddingBottom: "56.25%" /* 16:9 */,
-				paddingTop: 25,
-				height: 0
-			  }}
+				style={{
+					position: "relative",
+					paddingBottom: "56.25%" /* 16:9 */,
+					paddingTop: 25,
+					height: 0
+				}}
 			>
 				<iframe
 					src={videoSrc}
 					frameBorder="0"
 					allowFullScreen
 					title="Video player"
-					style={{ 
+					style={{
 						position: "absolute",
 						top: 0,
 						left: 0,
@@ -29,11 +29,6 @@ function VideoPlayer({ videoId }) {
 					}}
 				/>
 			</div>
-			{/* <h1>{user.name}</h1> */}
-			{/* <div className="ui segment">
-            <h4 className="ui header">{video.snippet.title}</h4>
-            <p>{video.snippet.description}</p>
-        </div> */}
 		</div>
 	);
 }

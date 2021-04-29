@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 function LandingAnimation(id) {
     const [animation, setAnimation] = useState(false);
