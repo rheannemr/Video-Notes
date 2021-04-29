@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Paper, IconButton } from "@material-ui/core";
 import { Timeline, TimelineItem, TimelineSeparator, TimelineContent, TimelineOppositeContent, TimelineConnector, TimelineDot } from "@material-ui/lab";
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
-import { pink } from "@material-ui/core/colors";
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
     },
     timelineDot: {
-        backgroundColor: pink[300],
+        backgroundColor: '#d45548',
     }
 }));
 
@@ -45,15 +44,10 @@ function NotesTimeline(props) {
             <Timeline align="alternate" style={{ marginTop: "20vh" }} >
                 {notes.filter(note => note.videoId == props.videoId).map((note, i) => (
                     <TimelineItem key={i}>
-                        <TimelineOppositeContent>
-                            <Typography variant="body2" color="textSecondary">
-                                Video Time
-                                </Typography>
-                        </TimelineOppositeContent>
                         <TimelineSeparator>
                             <TimelineDot className={classes.timelineDot}>
                                 <IconButton aria-label="settings">
-                                    <DeleteSweepIcon />
+                                    <BorderColorIcon />
                                 </IconButton>
                             </TimelineDot>
                             <TimelineConnector />
