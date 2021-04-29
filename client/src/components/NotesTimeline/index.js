@@ -22,7 +22,7 @@ function NotesTimeline(props) {
 
     const classes = useStyles();
     const [notes, setNotes] = useState([]);
-           
+
     useEffect(() => {
         console.log(props.videoId);
         const user = localStorage.getItem('auth0.user');
@@ -38,7 +38,7 @@ function NotesTimeline(props) {
             .then(res => console.log("notes are: ", setNotes(res)))
             .catch((err) => alert(err));
     });
-    
+
     return (
         <>
             <Timeline align="alternate" style={{ marginTop: "20vh" }} >
@@ -53,7 +53,7 @@ function NotesTimeline(props) {
                             <TimelineConnector />
                         </TimelineSeparator>
                         <TimelineContent >
-                            <Paper  elevation={3} className={classes.paper}>
+                            <Paper elevation={3} className={classes.paper}>
                                 <Typography variant="h6" component="h1">
                                     {note.title}
                                 </Typography>

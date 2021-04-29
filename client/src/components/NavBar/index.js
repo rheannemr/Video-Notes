@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 function NavBar() {
 	const classes = useStyles();
 	const { logout } = useAuth0();
-	const [ value, setValue ] = React.useState(0);
+	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);

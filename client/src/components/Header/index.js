@@ -12,15 +12,15 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh'
     },
     textcolor: {
-		color: '#d45548'
-	},
+        color: '#d45548'
+    },
     container: {
         textAlign: 'center'
     },
     title: {
         color: 'black',
         fontSize: '5rem',
-        fontFamily:'Comfortaa'
+        fontFamily: 'Comfortaa'
     },
     expandMore: {
         color: 'black',
@@ -38,18 +38,18 @@ function Header() {
 
     return (
         <div className={classes.root} id="header">
-            <Collapse in={checked} { ... (checked ? { timeout: 1000 } : {})}
-            collapsedHeight={50}>
-            <div className={classes.container}>
-				<h1 className={classes.title}>
-                    Welcome to<br/><span className={classes.textcolor}>U Notes</span>
-                </h1>
-                <Scroll to="start-btn" smooth={true}>
-                <IconButton>
-                    <ExpandMoreIcon className={classes.expandMore}/>
-                </IconButton>
-                </Scroll>
-			</div>
+            <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})}
+                collapsedHeight={50}>
+                <div className={classes.container}>
+                    <h1 className={classes.title}>
+                        Welcome to<br /><span className={classes.textcolor}>U Notes</span>
+                    </h1>
+                    <Scroll to="start-btn" smooth={true}>
+                        <IconButton>
+                            <ExpandMoreIcon className={classes.expandMore} />
+                        </IconButton>
+                    </Scroll>
+                </div>
             </Collapse>
         </div>
     );
