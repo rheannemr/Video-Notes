@@ -7,7 +7,6 @@ import QueuePlayNextIcon from '@material-ui/icons/QueuePlayNext';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import VideoPlayer from '../VideoPlayer';
-import RedirectBtn from '../RedirectBtn';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -60,7 +59,7 @@ function MySavedVideoNotes(props) {
 	};
 
 	const handleRedirect = () => {
-		<Link to={`/videonotes/${{videoId: props.notesForVideo[0].videoId}}`} />
+		<Link to={`/videonotes/${props.videoId}`} />
 	}
 
 	return (
@@ -77,17 +76,16 @@ function MySavedVideoNotes(props) {
 							<DeleteSweepIcon onClick={() => handleDelete(props.notesForVideo[0].id)} />
 						</IconButton>
 					}
+					title="SAVED VIDEO"
 				/>
 				<VideoPlayer
 					videoId={props.notesForVideo[0].videoId}
 					className={classes.media}
-					width="100"
-					height="60"
 				/>
 				<CardMedia title="Saved Video" />
 				<CardActions disableSpacing>
 					<IconButton aria-label="Go to Video Notes page">
-					<Link to={`/videonotes/${props.videoId}`}>
+					<Link to={`/videonotes/${props.videoId}`} onClick={() => handleRedirect}>
 						<QueuePlayNextIcon />
 					</Link>
 					</IconButton>
