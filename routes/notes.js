@@ -18,7 +18,6 @@ Router.post('/delete', async (req, res) => {
 Router.post('/user', async (req, res) => {
 	try {
 		const note = await Note.find({ name: req.body.name });
-		res.status(201);
 		res.send(note);
 	} catch (err) {
 		res.status(501);
@@ -30,6 +29,7 @@ Router.post('/user', async (req, res) => {
 Router.get('/', async (req, res) => {
 	try {
 		const notes = await Note.find({ name: req.query.user });
+		res.status(201);
 		res.json(notes);
 	} catch (err) {
 		console.log('Error in the notes get route', err);
