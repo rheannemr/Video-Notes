@@ -11,16 +11,14 @@ const useStyles = makeStyles((theme) => ({
   }));
 
   export default function RedirectBtn({videoId}) {
-    
-      console.log("Inside RedirectBtn", videoId)
       const classes = useStyles();
     
     return (
       <div className={classes.root}>
         <Link to={`/videonotes/${videoId}`}>
-        <Button variant="contained" color="black" style={{ marginBottom: "15px" }}>
-          Select
-        </Button>
+          <Button variant="contained" color="black" style={{ marginBottom: "15px" }}>
+            Select
+          </Button>
         </Link>
       </div>
     );
