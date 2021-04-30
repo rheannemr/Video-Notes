@@ -44,7 +44,7 @@ app.use(
 );
 
 // Define API route
-app.use("/api/notes", notesApiRoute)
+app.use("/api/notes/", notesApiRoute)
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
