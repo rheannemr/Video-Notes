@@ -60,15 +60,15 @@ function SavedNotes() {
 	return (
 		<div>
 			<Grid container className={classes.root} alignItems="center" justify="center" spacing={2}>
-			<Grid item xs={12}>
-            <Grid container spacing={spacing}>
-			{notes.map((notesForThatVideo, i) => (
-				<Grid item xs={6} sm={3}>
-				<MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} refresh={refresh} />
+				<Grid item xs={12}>
+					<Grid container spacing={spacing}>
+					{notes.map((notesForThatVideo, i) => (
+						<Grid item xs={6} sm={3}>
+							<MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} refresh={refresh} />
+						</Grid>
+					))}
+					</Grid>
 				</Grid>
-			))}
-			</Grid>
-			</Grid>
 			</Grid>
 		</div>
 	);

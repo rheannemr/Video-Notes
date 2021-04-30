@@ -35,7 +35,7 @@ function NotesTimeline(props) {
             .then((res) => res.json())
             .then(res => setNotes(res))
             .catch((err) => alert(err));
-    }, []);
+    });
 
     return (
         <>
