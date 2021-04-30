@@ -6,12 +6,15 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	navbar: {
-		background: '#e7966e'
+		background: '#FFDDCC'
 	},
 	toolbarButtons: {
 		marginLeft: 'auto',
 		marginTop: '4.5px',
 		marginRight: '43px'
+	},
+	textcolor: {
+		color: '#3E1409'
 	}
 }));
 
@@ -35,7 +38,7 @@ function NavBar() {
 	return (
 		<div>
 			<AppBar className={classes.navbar} elevation={0}>
-				<Tabs value={value} onChange={handleChange}>
+				<Tabs className={classes.textcolor} value={value} onChange={handleChange}>
 					<Tab label="Sign In" component={Link} to={'/landing'} />
 					<Tab label="Search Video" component={Link} to={'/search'} />
 					<Tab label="My Video Notes" component={Link} to={'/savednotes'} />

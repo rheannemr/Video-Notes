@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from "@material-ui/core";
 import MySavedVideoNotes from '../../components/Card';
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  flexGrow: 1,
+	  padding: theme.spacing(2)
+	}
+  }));
 
 function sort(notes) {
 	const videoIds = notes.map((note) => note.videoId);
@@ -17,6 +26,9 @@ function SavedNotes() {
 	const [notes, setNotes] = useState([]);
 	const [reUpload, triggerReUpload] = useState(0);
 
+	const [spacing, setSpacing] = React.useState(2);
+	const classes = useStyles();
+  
 	const refresh = () => {
 		triggerReUpload(reUpload + 1);
 	};
@@ -47,9 +59,17 @@ function SavedNotes() {
 
 	return (
 		<div>
+			<Grid container className={classes.root} alignItems="center" justify="center" spacing={2}>
+			<Grid item xs={12}>
+            <Grid container spacing={spacing}>
 			{notes.map((notesForThatVideo, i) => (
+				<Grid item xs={6} sm={3}>
 				<MySavedVideoNotes key={i} notesForVideo={notesForThatVideo} refresh={refresh} />
+				</Grid>
 			))}
+			</Grid>
+			</Grid>
+			</Grid>
 		</div>
 	);
 }
