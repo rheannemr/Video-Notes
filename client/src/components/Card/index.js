@@ -24,11 +24,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	avatar: {
 		backgroundColor: '#d45548'
-	},
-	cardDisplay: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
 	}
 }));
 
@@ -57,7 +52,7 @@ function MySavedVideoNotes(props) {
 	};
 
 	return (
-		<div className={classes.cardDisplay}>
+		<div>
 			<Card className={classes.root} style={{ marginTop: '10vh' }}>
 				<CardHeader
 					avatar={
@@ -70,7 +65,7 @@ function MySavedVideoNotes(props) {
 							<DeleteSweepIcon onClick={() => handleDelete(props.notesForVideo[0].id)} />
 						</IconButton>
 					}
-					title="SAVED VIDEO"
+
 				/>
 				<VideoPlayer
 					videoId={props.notesForVideo[0].videoId}
