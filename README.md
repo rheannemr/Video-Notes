@@ -6,8 +6,8 @@ U Notes is a video note taking full-stack application created with React.js, Mon
 - [General Info](#general-info)
 - [Link to deployed page](#general-info)
 - [Landing Page](#landing-page)
+- [Login or Signup Page (Auth0)](#login-or-signup-page-(auth0))
 - [Video Search Page](#video-search-page)
-- [Video List Page](#video-list-page)
 - [Video Notes Page](#video-notes-page)
 - [My Saved Video Notes Page](#my-saved-video-notes-page)
 - [Technologies](#technologies)
@@ -39,17 +39,22 @@ U Notes meets the following criteria:
   THEN my user is logged out and I am redirected back to the landing page <br />
   
 ## Link to Deployed Page
+https://desolate-shore-89926.herokuapp.com/
 
 ## Landing Page
-- Photo of Landing Page
+![image](https://user-images.githubusercontent.com/71292617/116770953-679b0f00-a9fc-11eb-9a24-d2cea87d4c7c.png)
+
+## Login or Signup Page (Auth0)
+![image](https://user-images.githubusercontent.com/71292617/116771424-1725b080-aa00-11eb-8429-72b8e53dada0.png)
+
 ## Video Search Page
-- Photo of Video Search Page
-## Video List Page
-- Photo of Video List Page
+![image](https://user-images.githubusercontent.com/71292617/116770987-b47ee580-a9fc-11eb-9f66-1066e02a989c.png)
+
 ## Video Notes Page
-- Photo of Video Notes Page
+![image](https://user-images.githubusercontent.com/71292617/116771154-02e0b400-a9fe-11eb-9639-5262aa1019ce.png)
+
 ## My Saved Video Notes Page
-- Photo of My Saved Video Notes
+![image](https://user-images.githubusercontent.com/71292617/116771358-aa121b00-a9ff-11eb-9996-b4e33908815e.png)
 
 ## Technologies
 This project is created with:
