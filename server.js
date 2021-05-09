@@ -52,8 +52,11 @@ app.get("*", (req, res) => {
 
 const db = mongoose.connection
 db.on("error", (error) => console.log(error));
-db.once("open", () => console.log("Connected to Database"));
-
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+db.once("open", () => {
+  console.log("Connected to Database")
+  app.listen(PORT, () => {
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
+  })
 });
+
+

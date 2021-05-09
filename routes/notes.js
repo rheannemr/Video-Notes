@@ -18,8 +18,10 @@ Router.post('/delete', async (req, res) => {
 Router.post('/user', async (req, res) => {
 	try {
 		const note = await Note.find({ name: req.body.name });
+		console.log('note is: ', note);
 		res.send(note);
 	} catch (err) {
+		console.log('error in post user: ', err);
 		res.status(501);
 		res.send('Unexpected Error');
 	}
